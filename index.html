@@ -28,18 +28,18 @@
         body {
             font-family: "Inter", system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.5;
-            background-color: rgb(228 201 201) ; /* deep black base */
-            color: #e5e5e5; /* light gray for readability on black */
+            background-color: #0a0a0a;  /* deep black base */
+            color: #e5e5e5;
             scroll-behavior: smooth;
         }
 
         :root {
-            --primary-deep: #0a0a0a;        /* black base */
-            --primary-orange: #f97316;       /* vibrant orange */
-            --orange-dark: #ea580c;           /* deeper orange */
-            --orange-soft: #ffedd5;           /* very light orange (for backgrounds) */
+            --primary-deep: #0a0a0a;
+            --primary-orange: #f97316;
+            --orange-dark: #ea580c;
+            --orange-soft: #ffedd5;
             --orange-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-            --gray-charcoal: #1f1f1f;          /* card background */
+            --gray-charcoal: #1f1f1f;
             --gray-mid: #2a2a2a;
             --text-light: #f5f5f5;
             --text-muted: #a3a3a3;
@@ -53,7 +53,7 @@
         h1, h2, h3, h4, h5 {
             font-weight: 600;
             letter-spacing: -0.02em;
-            color: var(--gray-charcoal);
+            color: #ffffff;
         }
 
         h2 {
@@ -62,24 +62,69 @@
             position: relative;
             display: inline-block;
         }
-        h2:after {
-            /* content: '';
-            display: block;
-            width: 70px;
-            height: 4px;
-            background: var(--orange-gradient);
-            border-radius: 4px;
-            margin-top: 0.5rem; */
+     
+        p {
+            color: #c0c0c0;
         }
 
-        p {
-            color: var(--text-muted);
+        .text-orange {
+            color: var(--primary-orange) !important;
+        }
+
+        /* -------------------- TOP BAR (new, from image) -------------------- */
+        .top-bar {
+            background: #0c0c0c;
+            border-bottom: 1px solid rgba(249, 115, 22, 0.25);
+            padding: 0.6rem 0;
+            font-size: 0.9rem;
+            color: #ddd;
+        }
+        .top-bar .container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.8rem 1.5rem;
+        }
+        .top-bar .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #e0e0e0;
+            transition: var(--transition-default);
+        }
+        .top-bar .contact-item i {
+            color: var(--primary-orange);
+            font-size: 1rem;
+            width: 1.2rem;
+            text-align: center;
+        }
+        .top-bar .contact-item:hover {
+            color: white;
+        }
+        .top-bar .meet-text {
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            background: rgba(249, 115, 22, 0.12);
+            padding: 0.25rem 1rem;
+            border-radius: 40px;
+            border: 1px solid rgba(249, 115, 22, 0.3);
+            color: #f97316;
+        }
+        .top-bar .meet-text i {
+            color: #f97316;
+            margin-right: 0.4rem;
+        }
+        @media (max-width: 576px) {
+            .top-bar .container {
+                justify-content: center;
+            }
         }
 
         /* -------------------- NAVBAR (black/orange, sticky, blurred) -------------------- */
         .navbar-modern {
             backdrop-filter: blur(12px);
-            background: rgb(228 201 201) !important; /* semi-transparent black */
+            background: rgba(11, 11, 11, 0.95) !important;
             box-shadow: 0 4px 30px rgba(249, 115, 22, 0.1);
             border-bottom: 1px solid rgba(249, 115, 22, 0.2);
         }
@@ -92,11 +137,11 @@
             max-height: 45px;
             width: auto;
             height: auto;
-            /* filter: brightness(0) invert(1);  */
+            filter: brightness(1) invert(0);
         }
         .navbar .nav-link {
             font-weight: 600;
-            color: #0a0a0a;
+            color: #f0f0f0;
             margin: 0 0.2rem;
             padding: 0.5rem 0.6rem !important;
             border-radius: 2rem;
@@ -108,25 +153,40 @@
             color: var(--primary-orange);
         }
 
-        /* -------------------- HERO CAROUSEL (fully responsive) -------------------- */
+        /* modern orange toggler */
+        .navbar-toggler {
+            border: 1px solid rgba(249,115,22,0.5);
+            background: transparent;
+            padding: 0.5rem 0.7rem;
+            border-radius: 0.7rem;
+            transition: all 0.2s;
+        }
+        .navbar-toggler:focus {
+            box-shadow: 0 0 0 3px rgba(249,115,22,0.3);
+            outline: none;
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(249,115,22,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+            width: 1.6em;
+            height: 1.6em;
+        }
+
+        /* -------------------- HERO CAROUSEL -------------------- */
         .hero-carousel {
             height: 85vh;
             min-height: 600px;
-            background-color: #0a0a0a; /* fallback */
+            background-color: #0a0a0a;
         }
-
         .hero-carousel .carousel-inner,
         .hero-carousel .carousel-item {
             height: 100%;
         }
-
         .hero-carousel .carousel-item img {
             object-fit: cover;
             height: 100%;
             width: 100%;
-            filter: brightness(0.6); /* darker overlay for orange/black theme */
+            filter: brightness(0.6);
         }
-
         .hero-carousel .carousel-item::after {
             content: '';
             position: absolute;
@@ -134,10 +194,9 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 10, 10, 0.5); /* black overlay */
+            background: rgba(10, 10, 10, 0.5);
             z-index: 1;
         }
-
         .carousel-caption-modern {
             position: absolute;
             top: 50%;
@@ -150,12 +209,10 @@
             color: white;
             text-shadow: 0 4px 20px rgba(0,0,0,0.5);
             padding: 2rem;
-            background: rgba(0, 0, 0, 0.2); /* dark glass */
-            /* backdrop-filter: blur(4px); */
+            background: rgba(0, 0, 0, 0.2);
             border-radius: 3rem;
             border: 1px solid rgba(249, 115, 22, 0.3);
         }
-
         .carousel-caption-modern h1 {
             font-size: clamp(1.8rem, 8vw, 4rem);
             font-weight: 700;
@@ -166,14 +223,6 @@
             line-height: 1.2;
             margin-bottom: 0.5rem;
         }
-
-        .carousel-caption-modern .lead {
-            font-size: clamp(0.9rem, 3vw, 1.3rem);
-            color: #f5f5f5;
-            max-width: 650px;
-            margin: 1rem auto 1.5rem;
-        }
-
         .btn-primary-custom {
             background: var(--orange-gradient);
             border: none;
@@ -191,69 +240,10 @@
             background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
         }
 
-        .hero-contact-info {
-            font-size: clamp(0.75rem, 2.5vw, 1.1rem);
-            color: white;
-            background: rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(8px);
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            border-radius: 50px;
-            border: 1px solid rgba(249, 115, 22, 0.4);
-            margin-top: 2rem;
-        }
-        .hero-contact-info i {
-            color: #f97316;
-        }
-
-        .carousel-control-prev-icon,
-        .carousel-control-next-icon {
-            filter: invert(1) drop-shadow(0 2px 4px black);
-        }
-        .carousel-indicators [data-bs-target] {
-            background-color: #f97316;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            opacity: 0.7;
-        }
-        .carousel-indicators .active {
-            opacity: 1;
-            background: #ea580c;
-        }
-
-        @media (max-width: 992px) {
-            .hero-carousel {
-                height: 100% !important;
-                min-height: 100%;
-            }
-        }
-        @media (max-width: 768px) {
-            /* .hero-carousel {
-                height: 100% !important;
-                min-height: 100%;
-            } */
-        }
-        @media (max-width: 576px) {
-            /* .hero-carousel {
-                height: 100% !important;
-                min-height: 100%;
-            } */
-            /* .hero-carousel { height: 60vh; min-height: 400px; } */
-        }
-        @media (max-height: 500px) and (orientation: landscape) {
-             /* .hero-carousel {
-                height: 100% !important;
-                min-height: 100%;
-            } */
-            /* .hero-carousel { height: 100vh; min-height: 300px; }
-            .carousel-caption-modern .lead { display: none; } */
-        }
-
-        /* -------------------- SERVICES SECTION (black cards, orange accents) -------------------- */
+        /* -------------------- SERVICES, FEATURES, etc. (unchanged from previous) -------------------- */
         .service-card {
             border: none;
-            background: #1f1f1f; /* charcoal */
+            background: #1f1f1f;
             border-radius: var(--border-radius-card);
             padding: 2rem 1.5rem;
             box-shadow: 0 10px 20px -5px rgba(0,0,0,0.5);
@@ -283,11 +273,7 @@
             color: #a3a3a3;
             font-size: 0.95rem;
         }
-        .service-card span {
-            color: #f97316 !important;
-        }
 
-        /* -------------------- FEATURES MINI CARDS -------------------- */
         .feature-mini-card {
             background: #1f1f1f;
             border-radius: 2rem;
@@ -299,9 +285,6 @@
         }
         .feature-mini-card .feature-icon {
             font-size: 2.2rem;
-            background: linear-gradient(145deg, #f97316, #ea580c);
-            -webkit-background-clip: text;
-            background-clip: text;
         }
         .feature-mini-card:hover {
             background: #2a2a2a;
@@ -311,32 +294,145 @@
             color: #f97316;
         }
 
-        /* -------------------- ABOUT SECTION (dark with orange border) -------------------- */
-        .about-card {
-            background: #1f1f1f;
-            border-radius: 2rem;
-            padding: 2rem;
-            border-left: 8px solid #f97316;
-            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.7);
+        /* mission/vision pillars */
+        .pillar-card {
+            background: #1a1a1a;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1rem;
+            border: 1px solid #2a2a2a;
+            transition: 0.2s;
+            height: 100%;
         }
-        .about-card h5 {
+        .pillar-card:hover {
+            border-color: #f97316;
+            transform: translateY(-5px);
+            box-shadow: 0 15px 25px -10px rgba(249,115,22,0.3);
+        }
+        .pillar-icon {
+            font-size: 2rem;
             color: #f97316;
+            margin-bottom: 0.75rem;
+        }
+        .pillar-card h5 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+        .pillar-card p {
+            font-size: 0.9rem;
+            color: #b0b0b0;
+            margin-bottom: 0;
+        }
+        .mission-statement, .vision-statement, .founded-card {
+            background: #1f1f1f;
+            border-left: 6px solid #f97316;
+            border-radius: 1.2rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        }
+        .section-title-orange {
+            color: #f97316;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
         }
 
-        /* background for soft gradient section (replaced with dark) */
-        .bg-soft-gradient {
-            background: #ee5e33; /* solid dark, no gradient */
+        /* FAQ & news section */
+        .insight-card {
+            background: #1a1a1a;
+            border-radius: 2rem;
+            padding: 2rem 1.8rem;
+            border: 1px solid #2a2a2a;
+            transition: 0.2s;
+            height: 100%;
+        }
+        .insight-card:hover {
+            border-color: #f97316;
+            box-shadow: 0 15px 30px -12px rgba(249,115,22,0.3);
+        }
+        .world-class-tagline {
+            background: var(--orange-gradient);
+            border-radius: 4rem;
+            padding: 1.2rem 2rem;
+            color: white;
+            font-weight: 600;
+            font-size: 1.3rem;
+            line-height: 1.4;
+            text-align: center;
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 2.5rem;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+        .faq-item {
+            padding: 1.2rem 0;
+            border-bottom: 1px solid #2a2a2a;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-question {
+            font-weight: 600;
+            color: #f97316;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        .faq-answer {
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+        .news-item {
+            display: flex;
+            flex-direction: column;
+            padding: 1rem 0;
+            border-bottom: 1px dashed #333;
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        .news-title {
+            font-weight: 600;
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            transition: 0.2s;
+        }
+        .news-title:hover {
+            color: #f97316;
+            cursor: pointer;
+        }
+        .news-meta {
+            font-size: 0.8rem;
+            color: #a3a3a3;
+        }
+        .news-meta i {
+            color: #f97316;
+            margin-right: 0.3rem;
+        }
+        .news-excerpt {
+            color: #a3a3a3;
+            font-size: 0.9rem;
+            margin: 0.5rem 0 0.2rem;
+        }
+        .news-link {
+            color: #f97316;
+            font-weight: 500;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        .news-link:hover {
+            text-decoration: underline;
         }
 
-        /* -------------------- CONTACT SECTION -------------------- */
+        /* contact section */
         .contact-section {
-            background:rgb(228 201 201);
+            background: #111;
             border-top: 1px solid #f97316;
             border-bottom: 1px solid #f97316;
         }
         .contact-form input, .contact-form textarea {
-            background:#e7bcae;
-            backdrop-filter: blur(5px);
+            background: #222;
             border: 1px solid #333;
             border-radius: 1.2rem;
             padding: 0.9rem 1.2rem;
@@ -349,9 +445,6 @@
             box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2);
             outline: none;
             background: #2a2a2a;
-        }
-        .contact-form input::placeholder, .contact-form textarea::placeholder {
-            color: #6b6b6b;
         }
         .contact-form button {
             background: var(--orange-gradient);
@@ -368,7 +461,6 @@
             box-shadow: 0 20px 30px -8px #f97316;
         }
 
-        /* -------------------- FOOTER (black/orange) -------------------- */
         .footer-modern {
             background: #0a0a0a;
             color: #a3a3a3;
@@ -384,37 +476,42 @@
             color: #ea580c;
         }
 
-        /* -------------------- UTILITY CLASSES -------------------- */
         .section-padding {
-            padding: 2rem 0;
+            padding: 4rem 0;
         }
-
-        /* make any remaining text elements consistent */
-        .text-secondary {
-            color: #a3a3a3 !important;
+        .bg-soft-gradient {
+            background: #151515;
         }
-
-        /* fix for headings in about */
-        .about-card p {
-            color: #a3a3a3;
-        }
-
-        /* adjust svg illustration colors to match orange/black */
-        .col-lg-6 img {
-            filter: brightness(0.9) contrast(1.1);
+        img.rounded-5 {
+            border-radius: 2rem !important;
         }
     </style>
 </head>
 <body>
 
-<!-- ==================== NAVBAR ==================== -->
+<!-- ==================== TOP BAR (Meet With Us | email | phone) ==================== -->
+<div class="top-bar">
+    <div class="container">
+        <div class="contact-item meet-text">
+            <i class="fa-regular fa-handshake"></i> <span>Meet With Us</span>
+        </div>
+        <div class="contact-item">
+            <i class="fa-regular fa-envelope"></i> <span>gammasoftbd@gmail.com</span>
+        </div>
+        <div class="contact-item">
+            <i class="fa-solid fa-phone-volume"></i> <span>+88-01898-890641</span>
+        </div>
+    </div>
+</div>
+
+<!-- ==================== NAVBAR (modern sticky with orange toggler) ==================== -->
 <nav class="navbar navbar-expand-lg navbar-modern sticky-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
             <img src="image/Gamma-Soft-logo.png" alt="GammaSoft" class="img-fluid">
         </a>
-        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center">
@@ -432,59 +529,22 @@
 <!-- ==================== HERO CAROUSEL ==================== -->
 <section class="hero-carousel">
     <div id="gammaHeroCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="5000">
-        <!-- Indicators (orange) will be orange via CSS -->
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#gammaHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#gammaHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
             <button type="button" data-bs-target="#gammaHeroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
         </div>
-        
         <div class="carousel-inner h-100">
-            <!-- Slide 1 -->
             <div class="carousel-item active h-100">
-                <img src="slider/Ems.png" class="d-block w-100" alt="GammaSoft team in modern office – web development experts">
-                <!-- <div class="carousel-caption-modern">
-                    <h1>Smart IT solutions for modern business</h1>
-                    <p class="lead">Web · E‑commerce · Mobile · ERP — crafted in Bangladesh</p>
-                    <div class="d-flex flex-wrap gap-3 justify-content-center mt-2">
-                        <a href="#contact" class="btn btn-primary-custom">Meet With Us <i class="fa-regular fa-handshake ms-2"></i></a>
-                    </div>
-                    <div class="hero-contact-info mt-4 mx-auto">
-                        <i class="fa-regular fa-envelope me-2"></i> gammasoftbd@gmail.com  &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fa-solid fa-phone-volume me-2"></i> 01898-890641
-                    </div>
-                </div> -->
+                <img src="slider/Ems.png" class="d-block w-100" alt="GammaSoft team">
             </div>
-            <!-- Slide 2 -->
-            <!-- <div class="carousel-item h-100">
-                <img src="slider/Gamma-Flix.png" class="d-block w-100" alt="Developers coding at GammaSoft – software development">
-                <div class="carousel-caption-modern">
-                    <h1>Smart IT solutions for modern business</h1>
-                    <p class="lead">Web · E‑commerce · Mobile · ERP — crafted in Bangladesh</p>
-                    <div class="d-flex flex-wrap gap-3 justify-content-center mt-2">
-                        <a href="#contact" class="btn btn-primary-custom">Meet With Us <i class="fa-regular fa-handshake ms-2"></i></a>
-                    </div>
-                    <div class="hero-contact-info mt-4 mx-auto">
-                        <i class="fa-regular fa-envelope me-2"></i> gammasoftbd@gmail.com  &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fa-solid fa-phone-volume me-2"></i> 01898-890641
-                    </div>
-                </div>
-            </div> -->
-            <!-- Slide 3 -->
-            <!-- <div class="carousel-item h-100">
-                <img src="slider/Mobile-app-E-commerce-slider.png" class="d-block w-100" alt="GammaSoft mobile app and e-commerce solutions">
-                <div class="carousel-caption-modern">
-                    <h1>Smart IT solutions for modern business</h1>
-                    <p class="lead">Web · E‑commerce · Mobile · ERP — crafted in Bangladesh</p>
-                    <div class="d-flex flex-wrap gap-3 justify-content-center mt-2">
-                        <a href="#contact" class="btn btn-primary-custom">Meet With Us <i class="fa-regular fa-handshake ms-2"></i></a>
-                    </div>
-                    <div class="hero-contact-info mt-4 mx-auto">
-                        <i class="fa-regular fa-envelope me-2"></i> gammasoftbd@gmail.com  &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fa-solid fa-phone-volume me-2"></i> 01898-890641
-                    </div>
-                </div>
-            </div> -->
+            <div class="carousel-item h-100">
+                <img src="slider/Gamma-Flix.png" class="d-block w-100" alt="Developers coding">
+            </div>
+            <div class="carousel-item h-100">
+                <img src="slider/Mobile-app-E-commerce-slider.png" class="d-block w-100" alt="Mobile app solutions">
+            </div>
         </div>
-
-        <!-- Controls -->
         <button class="carousel-control-prev" type="button" data-bs-target="#gammaHeroCarousel" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="visually-hidden">Previous</span>
@@ -558,23 +618,143 @@
     </div>
 </section>
 
-<!-- ==================== ABOUT SECTION ==================== -->
+<!-- ==================== MISSION & VISION SECTION ==================== -->
 <section class="section-padding">
     <div class="container">
-        <div class="row align-items-center g-5">
+        <div class="row g-5">
+            <!-- LEFT COLUMN: MISSION + 4 PILLARS -->
             <div class="col-lg-6">
-                <h2>About Gamma Soft BD</h2>
-                <div class="about-card">
-                    <h5 class="fw-bold">our mission</h5>
-                    <p class="text-secondary">Exceed client's expectations by going beyond software to provide best Web and mobile application solutions that transform data into knowledge, enabling them to solve their problems.</p>
+                <h2 class="section-title-orange">Our Mission</h2>
+                <div class="mission-statement">
+                    <p class="fs-5" style="color:#e0e0e0;">Exceed client’s expectations by going beyond software to provide best Web and mobile application solutions that transform data into knowledge, enabling them to solve their problems.</p>
                 </div>
-                <div class="about-card mt-4">
-                    <h5 class="fw-bold">our vision</h5>
-                    <p class="text-secondary">Our Vision is to be a leading Software Solution company in IT sector and progress in our current position in market. We believe in work with the accuracy and best quality. We want to be known as the reliable, innovative and user friendly software service provider in IT industry.</p>
+
+                <div class="row g-3 mt-2">
+                    <div class="col-6">
+                        <div class="pillar-card">
+                            <i class="fa-regular fa-face-smile pillar-icon"></i>
+                            <h5>Client Satisfaction</h5>
+                            <p>Win with customers — positive impact on their business in the shortest possible time.</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="pillar-card">
+                            <i class="fa-solid fa-briefcase pillar-icon"></i>
+                            <h5>Professionalism</h5>
+                            <p>Skilled professionals collaborate, design roadmap specific to client requirements.</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="pillar-card">
+                            <i class="fa-solid fa-headset pillar-icon"></i>
+                            <h5>Support</h5>
+                            <p>All resources at disposal for smooth transition to innovative digital technology.</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="pillar-card">
+                            <i class="fa-solid fa-handshake pillar-icon"></i>
+                            <h5>Integrity</h5>
+                            <p>We keep promises, deliver what we promise — attested by our clients.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <!-- RIGHT COLUMN: VISION + FOUNDED DESCRIPTION + ILLUSTRATION -->
             <div class="col-lg-6">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='400' viewBox='0 0 500 400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23ea580c' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='400' fill='url(%23g)' rx='40'/%3E%3Cpath d='M150,150 L250,80 L350,150 L350,280 L250,340 L150,280 Z' fill='%23f97316' opacity='0.3'/%3E%3Ccircle cx='250' cy='190' r='35' fill='%23f97316' opacity='0.2'/%3E%3Ctext x='180' y='260' font-family='Inter' font-size='28' fill='%23e5e5e5' font-weight='300'%3E%3Ctspan x='180' dy='0'%3EGamma%3C/tspan%3E%3Ctspan x='180' dy='40' font-weight='600' fill='%23f97316'%3ESoft BD%3C/tspan%3E%3C/text%3E%3C/svg%3E" alt="GammaSoft BD abstract illustration – innovation and technology" class="img-fluid rounded-5 shadow-sm">
+                <h2 class="section-title-orange">Our Vision</h2>
+                <div class="vision-statement">
+                    <p style="color:#e0e0e0;">Our Vision is to be a leading Software Solution company in IT sector and progress in our current position in market. We believe in work with the accuracy and best quality. We want to be known as the reliable, innovative and user friendly software service provider in IT industry.</p>
+                </div>
+
+                <div class="founded-card">
+                    <p class="fw-bold text-orange">Founded in 2022</p>
+                    <p style="color:#d0d0d0;">Our tech-related software company is a leading provider of cutting-edge solutions in software development, graphics design, and digital marketing. With a passion for innovation and a team of skilled professionals, we deliver high-quality services tailored to unique needs.</p>
+                    <p style="color:#d0d0d0;" class="mb-0">We excel in crafting robust applications (web, mobile, enterprise), captivating visuals for branding, and result-driven digital strategies. At the heart: customer satisfaction and long-term partnerships.</p>
+                </div>
+
+                <div class="mt-4 text-center">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='350' viewBox='0 0 500 350'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23ea580c' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='350' fill='url(%23g)' rx='40'/%3E%3Cpath d='M150,130 L250,70 L350,130 L350,250 L250,300 L150,250 Z' fill='%23f97316' opacity='0.3'/%3E%3Ccircle cx='250' cy='170' r='35' fill='%23f97316' opacity='0.2'/%3E%3Ctext x='170' y='230' font-family='Inter' font-size='28' fill='%23e5e5e5' font-weight='300'%3E%3Ctspan x='170' dy='0'%3EGamma%3C/tspan%3E%3Ctspan x='170' dy='40' font-weight='600' fill='%23f97316'%3ESoft BD%3C/tspan%3E%3C/text%3E%3C/svg%3E" alt="GammaSoft illustration" class="img-fluid rounded-5 shadow-sm" style="max-width: 100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ==================== FAQ & LATEST NEWS SECTION ==================== -->
+<section class="section-padding bg-soft-gradient">
+    <div class="container">
+        <div class="world-class-tagline">
+            <i class="fa-solid fa-medal me-2" style="color: #ffd966;"></i> 
+            We are a world-class software company providing our customers the highest quality products, services, and solutions.
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="insight-card">
+                    <h3 class="section-title-orange" style="font-size: 1.8rem; margin-top: 0;">General Questions</h3>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fa-regular fa-circle-question me-2" style="color:#f97316;"></i>
+                            How Increase your businesses with Gamma ?
+                        </div>
+                        <div class="faq-answer">
+                            Authoritatively integrate alternative outsourcing vis-a-vis market positioning quality vectors. Compellingly iterate diverse e-services before backward-compatible expertise. Credibly brand principle-centered innovation vis-a-vis pandemic e-services.
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fa-regular fa-circle-question me-2" style="color:#f97316;"></i>
+                            Competently streamline progressive scenarios
+                        </div>
+                        <div class="faq-answer">
+                            Dramatically engage top-line web services with revolutionary catalysts for change. Holistically drive client-centered solutions with high standards in innovation.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="insight-card">
+                    <h3 class="section-title-orange" style="font-size: 1.8rem; margin-top: 0;">Latest News</h3>
+
+                    <div class="news-item">
+                        <div class="news-title">
+                            Why Local SEO Services in Bangladesh Get Better Results – 2025 Guide
+                        </div>
+                        <div class="news-meta">
+                            <i class="fa-regular fa-calendar"></i> May 10th, 2025 
+                            <span class="mx-2">|</span> 
+                            <i class="fa-regular fa-comment"></i> No Comments
+                        </div>
+                        <div class="news-excerpt">
+                            SEO services in Bangladesh assist companies in achieving remarkable success. Clients report up to 300% revenue growth through smart...
+                        </div>
+                        <a href="#" class="news-link">Read more <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+                    </div>
+
+                    <div class="news-item">
+                        <div class="news-title">
+                            Search Engine Optimization (SEO) is the process of improving your website’s visibility...
+                        </div>
+                        <div class="news-meta">
+                            <i class="fa-regular fa-calendar"></i> May 5th, 2025 
+                            <span class="mx-2">|</span> 
+                            <i class="fa-regular fa-comment"></i> No Comments
+                        </div>
+                        <div class="news-excerpt">
+                            on search engines like Google, Bing, or others – learn the fundamentals and why GammaSoft excels at delivering ROI.
+                        </div>
+                        <a href="#" class="news-link">Read more <i class="fa-solid fa-arrow-right fa-xs"></i></a>
+                    </div>
+
+                    <div class="text-end mt-3">
+                        <a href="#" class="text-orange fw-semibold" style="text-decoration: none;">All news <i class="fa-solid fa-arrow-right-long ms-1"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -583,7 +763,7 @@
 <!-- ==================== CONTACT SECTION ==================== -->
 <section id="contact" class="contact-section section-padding">
     <div class="container">
-        <h2 class="text-center mb-5 w-100" style="color:#000000;">Let’s work together</h2>
+        <h2 class="text-center mb-5 w-100" style="color:#ffffff;">Let’s work together</h2>
         <form class="row g-4 justify-content-center contact-form" action="#" method="post">
             <div class="col-md-5">
                 <input type="text" class="form-control" placeholder="Your full name" required>
@@ -606,6 +786,35 @@
         </form>
     </div>
 </section>
+
+
+<!-- ==================== OUR PARTNERS SECTION ==================== -->
+<section id="partners" class="partners-section section-padding">
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+            <div class="col-6 col-md-3 text-center">
+                <img src="image/partners/ACN-Digital.png" alt="Partner 1" class="img-fluid grayscale" style="max-height: 80px;">
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <img src="image/partners/Cable-One-Logo.png" alt="Partner 2" class="img-fluid grayscale" style="max-height: 80px;">
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <img src="image/partners/Jeshore-City-Cable.png" alt="Partner 3" class="img-fluid grayscale" style="max-height: 80px;">
+            </div>
+            <div class="col-6 col-md-3 text-center">
+                <img src="image/partners/Tamanna-Pharmecy-Logo.png" alt="Partner 4" class="img-fluid grayscale" style="max-height: 80px;">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#gammaHeroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#gammaHeroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>    
 
 <!-- ==================== FOOTER ==================== -->
 <footer class="footer-modern">

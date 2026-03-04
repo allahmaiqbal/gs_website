@@ -2,15 +2,23 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <!-- responsive viewport -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GammaSoft BD · modern IT solutions</title>
-    <!-- Bootstrap 5 + icons + Google Font (Inter) -->
+    <!-- SEO meta -->
+    <meta name="description" content="GammaSoft BD delivers modern IT solutions: web development, e‑commerce, custom software & mobile apps in Bangladesh. Innovative, reliable, user‑friendly.">
+    <meta name="keywords" content="GammaSoft, IT solutions Bangladesh, web development, e-commerce, software development, mobile apps, Dhaka">
+    <meta name="author" content="GammaSoft BD">
+    <title>GammaSoft BD · modern IT solutions | Dhaka</title>
+    <!-- Bootstrap + icons + Inter font -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- favicon inline (orange/black theme) -->
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%23ea580c'/%3E%3C/linearGradient%3E%3Ccircle cx='50' cy='50' r='45' fill='url(%23g)'/%3E%3Ctext x='24' y='68' font-family='Inter' font-size='48' fill='white' font-weight='700'%3EG%3C/text%3E%3C/svg%3E" type="image/svg+xml">
     <style>
+        /* -------------------- GLOBAL RESET & VARIABLES (ORANGE + BLACK) -------------------- */
         * {
             margin: 0;
             padding: 0;
@@ -20,31 +28,32 @@
         body {
             font-family: "Inter", system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
             line-height: 1.5;
-            background-color: #fbfdff;
-            color: #1e293b;
+            background-color: rgb(228 201 201) ; /* deep black base */
+            color: #e5e5e5; /* light gray for readability on black */
             scroll-behavior: smooth;
         }
 
-        /* color palette — soft gradients & harmonious tones */
         :root {
-            --primary-light: #eef2ff;
-            --primary-soft: #4f46e5;      /* indigo base */
-            --primary-gradient: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
-            --primary-soft-bg: #f5f3ff;
-            --accent-teal: #14b8a6;
-            --gray-light: #f8fafc;
-            --gray-mid: #e2e8f0;
-            --shadow-sm: 0 10px 25px -5px rgba(0 0 0 / 0.05), 0 8px 10px -6px rgba(0 0 0 / 0.02);
-            --shadow-hover: 0 20px 30px -10px rgba(79, 70, 229, 0.15);
+            --primary-deep: #0a0a0a;        /* black base */
+            --primary-orange: #f97316;       /* vibrant orange */
+            --orange-dark: #ea580c;           /* deeper orange */
+            --orange-soft: #ffedd5;           /* very light orange (for backgrounds) */
+            --orange-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+            --gray-charcoal: #1f1f1f;          /* card background */
+            --gray-mid: #2a2a2a;
+            --text-light: #f5f5f5;
+            --text-muted: #a3a3a3;
+            --shadow-sm: 0 10px 25px -5px rgba(249, 115, 22, 0.2);
+            --shadow-hover: 0 20px 30px -10px rgba(249, 115, 22, 0.4);
             --border-radius-card: 1.5rem;
             --border-radius-btn: 3rem;
             --transition-default: all 0.2s ease;
         }
 
-        /* typography */
         h1, h2, h3, h4, h5 {
             font-weight: 600;
             letter-spacing: -0.02em;
+            color: var(--gray-charcoal);
         }
 
         h2 {
@@ -54,66 +63,70 @@
             display: inline-block;
         }
         h2:after {
-            content: '';
+            /* content: '';
             display: block;
             width: 70px;
             height: 4px;
-            background: var(--primary-gradient);
+            background: var(--orange-gradient);
             border-radius: 4px;
-            margin-top: 0.5rem;
+            margin-top: 0.5rem; */
         }
 
-        /* sticky navbar — sleek, blurred */
+        p {
+            color: var(--text-muted);
+        }
+
+        /* -------------------- NAVBAR (black/orange, sticky, blurred) -------------------- */
         .navbar-modern {
             backdrop-filter: blur(12px);
-            background: rgba(255, 255, 255, 0.8) !important;
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.03);
-            border-bottom: 1px solid rgba(255,255,255,0.5);
-            /* padding: 0.8rem 0; */
+            background: rgb(228 201 201) !important; /* semi-transparent black */
+            box-shadow: 0 4px 30px rgba(249, 115, 22, 0.1);
+            border-bottom: 1px solid rgba(249, 115, 22, 0.2);
         }
         .navbar-brand {
             font-weight: 700;
             font-size: 1.6rem;
-            color: #1e1b4b;
+            color: var(--text-light);
         }
-        .navbar-brand i {
-            background: var(--primary-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            font-size: 2rem;
-            margin-right: 8px;
+        .navbar-brand img {
+            max-height: 45px;
+            width: auto;
+            height: auto;
+            /* filter: brightness(0) invert(1);  */
         }
         .navbar .nav-link {
-            font-weight: 500;
-            color: #1e293b;
+            font-weight: 600;
+            color: #0a0a0a;
             margin: 0 0.2rem;
-            padding: 0.5rem 1rem !important;
+            padding: 0.5rem 0.6rem !important;
             border-radius: 2rem;
             transition: var(--transition-default);
         }
         .navbar .nav-link:hover,
         .navbar .nav-link.active {
-            background: var(--primary-soft-bg);
-            color: var(--primary-soft);
+            background: rgba(249, 115, 22, 0.15);
+            color: var(--primary-orange);
         }
 
-        /* ---------- HERO CAROUSEL (professional slider) ---------- */
+        /* -------------------- HERO CAROUSEL (fully responsive) -------------------- */
         .hero-carousel {
             height: 85vh;
             min-height: 600px;
+            background-color: #0a0a0a; /* fallback */
         }
+
         .hero-carousel .carousel-inner,
         .hero-carousel .carousel-item {
             height: 100%;
         }
+
         .hero-carousel .carousel-item img {
             object-fit: cover;
             height: 100%;
             width: 100%;
-            filter: brightness(0.75); /* consistent dark overlay */
+            filter: brightness(0.6); /* darker overlay for orange/black theme */
         }
-        /* dark overlay via pseudo-element for better text contrast */
+
         .hero-carousel .carousel-item::after {
             content: '';
             position: absolute;
@@ -121,10 +134,10 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(10, 15, 30, 0.4); /* dark overlay */
+            background: rgba(10, 10, 10, 0.5); /* black overlay */
             z-index: 1;
         }
-        /* caption container */
+
         .carousel-caption-modern {
             position: absolute;
             top: 50%;
@@ -135,75 +148,70 @@
             z-index: 10;
             text-align: center;
             color: white;
-            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
             padding: 2rem;
-            background: rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(4px);
+            background: rgba(0, 0, 0, 0.2); /* dark glass */
+            /* backdrop-filter: blur(4px); */
             border-radius: 3rem;
-            border: 1px solid rgba(255,255,255,0.2);
+            border: 1px solid rgba(249, 115, 22, 0.3);
         }
-        .carousel-caption-modern .badge {
-            background: rgba(255,255,255,0.85) !important;
-            color: #1e1b4f !important;
-            font-weight: 500;
-            border: none;
-            backdrop-filter: blur(4px);
-        }
+
         .carousel-caption-modern h1 {
-            font-size: 4rem;
+            font-size: clamp(1.8rem, 8vw, 4rem);
             font-weight: 700;
-            background: linear-gradient(145deg, #ffffff, #f0eaff);
+            background: linear-gradient(145deg, #ffffff, #ffedd5);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
             line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            margin-bottom: 0.5rem;
         }
+
         .carousel-caption-modern .lead {
-            font-size: 1.3rem;
-            color: rgba(255,255,255,0.95);
+            font-size: clamp(0.9rem, 3vw, 1.3rem);
+            color: #f5f5f5;
             max-width: 650px;
-            margin: 1.5rem auto;
+            margin: 1rem auto 1.5rem;
         }
+
         .btn-primary-custom {
-            background: var(--primary-gradient);
+            background: var(--orange-gradient);
             border: none;
             color: white;
-            border-radius: var(--border-radius-btn);
+            border-radius: 3rem;
             padding: 0.9rem 2.5rem;
             font-weight: 600;
-            box-shadow: 0 15px 25px -8px rgba(79, 70, 229, 0.5);
-            transition: var(--transition-default);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(4px);
+            box-shadow: 0 15px 25px -8px rgba(249, 115, 22, 0.5);
+            transition: all 0.2s ease;
+            border: 1px solid rgba(255, 165, 0, 0.3);
         }
         .btn-primary-custom:hover {
             transform: translateY(-3px);
-            box-shadow: 0 25px 30px -8px rgba(79, 70, 229, 0.7);
-            background: linear-gradient(135deg, #4f46e5 0%, #6d28d9 100%);
+            box-shadow: 0 25px 30px -8px #f97316;
+            background: linear-gradient(135deg, #ea580c 0%, #f97316 100%);
         }
+
         .hero-contact-info {
-            font-size: 1.1rem;
+            font-size: clamp(0.75rem, 2.5vw, 1.1rem);
             color: white;
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.6);
             backdrop-filter: blur(8px);
             display: inline-block;
             padding: 0.5rem 1.5rem;
             border-radius: 50px;
-            border: 1px solid rgba(255,255,255,0.3);
+            border: 1px solid rgba(249, 115, 22, 0.4);
             margin-top: 2rem;
         }
         .hero-contact-info i {
-            color: #cbd5e1;
+            color: #f97316;
         }
 
-        /* carousel controls light */
         .carousel-control-prev-icon,
         .carousel-control-next-icon {
             filter: invert(1) drop-shadow(0 2px 4px black);
         }
         .carousel-indicators [data-bs-target] {
-            background-color: white;
+            background-color: #f97316;
             width: 10px;
             height: 10px;
             border-radius: 50%;
@@ -211,29 +219,56 @@
         }
         .carousel-indicators .active {
             opacity: 1;
-            background: var(--primary-soft);
+            background: #ea580c;
         }
 
-        /* rest of the sections unchanged (keep all original styles) */
+        @media (max-width: 992px) {
+            .hero-carousel {
+                height: 100% !important;
+                min-height: 100%;
+            }
+        }
+        @media (max-width: 768px) {
+            /* .hero-carousel {
+                height: 100% !important;
+                min-height: 100%;
+            } */
+        }
+        @media (max-width: 576px) {
+            /* .hero-carousel {
+                height: 100% !important;
+                min-height: 100%;
+            } */
+            /* .hero-carousel { height: 60vh; min-height: 400px; } */
+        }
+        @media (max-height: 500px) and (orientation: landscape) {
+             /* .hero-carousel {
+                height: 100% !important;
+                min-height: 100%;
+            } */
+            /* .hero-carousel { height: 100vh; min-height: 300px; }
+            .carousel-caption-modern .lead { display: none; } */
+        }
+
+        /* -------------------- SERVICES SECTION (black cards, orange accents) -------------------- */
         .service-card {
             border: none;
-            background: white;
+            background: #1f1f1f; /* charcoal */
             border-radius: var(--border-radius-card);
             padding: 2rem 1.5rem;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.5);
             transition: var(--transition-default);
             height: 100%;
-            border: 1px solid rgba(226, 232, 240, 0.4);
+            border: 1px solid #333;
         }
         .service-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-hover);
-            border-color: transparent;
-            background: white;
+            border-color: var(--primary-orange);
         }
         .feature-icon {
             font-size: 2.8rem;
-            background: var(--primary-gradient);
+            background: var(--orange-gradient);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
@@ -242,115 +277,148 @@
         .service-card h5 {
             font-weight: 600;
             margin-bottom: 1rem;
-            color: #0f172a;
+            color: #f97316;
         }
         .service-card p {
-            color: #475569;
+            color: #a3a3a3;
             font-size: 0.95rem;
         }
+        .service-card span {
+            color: #f97316 !important;
+        }
+
+        /* -------------------- FEATURES MINI CARDS -------------------- */
         .feature-mini-card {
-            background: white;
+            background: #1f1f1f;
             border-radius: 2rem;
             padding: 2rem 1rem;
-            box-shadow: var(--shadow-sm);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
             transition: 0.2s;
-            border: 1px solid #f1f5f9;
+            border: 1px solid #333;
             height: 100%;
         }
         .feature-mini-card .feature-icon {
             font-size: 2.2rem;
-            background: linear-gradient(145deg, #4f46e5, #0e7490);
+            background: linear-gradient(145deg, #f97316, #ea580c);
             -webkit-background-clip: text;
             background-clip: text;
         }
         .feature-mini-card:hover {
-            background: var(--primary-soft-bg);
-            border-color: var(--primary-soft);
+            background: #2a2a2a;
+            border-color: #f97316;
         }
+        .feature-mini-card h5 {
+            color: #f97316;
+        }
+
+        /* -------------------- ABOUT SECTION (dark with orange border) -------------------- */
         .about-card {
-            background: #f8fafc;
+            background: #1f1f1f;
             border-radius: 2rem;
             padding: 2rem;
-            border-left: 8px solid #4f46e5;
-            box-shadow: var(--shadow-sm);
+            border-left: 8px solid #f97316;
+            box-shadow: 0 10px 20px -5px rgba(0,0,0,0.7);
         }
+        .about-card h5 {
+            color: #f97316;
+        }
+
+        /* background for soft gradient section (replaced with dark) */
+        .bg-soft-gradient {
+            background: #ee5e33; /* solid dark, no gradient */
+        }
+
+        /* -------------------- CONTACT SECTION -------------------- */
         .contact-section {
-            background: linear-gradient(145deg, #eef2ff, #ffffff);
-            border-top: 1px solid #e2e8f0;
-            border-bottom: 1px solid #e2e8f0;
+            background:rgb(228 201 201);
+            border-top: 1px solid #f97316;
+            border-bottom: 1px solid #f97316;
         }
         .contact-form input, .contact-form textarea {
-            background: rgba(255,255,255,0.9);
+            background:#e7bcae;
             backdrop-filter: blur(5px);
-            border: 1px solid #e2e8f0;
+            border: 1px solid #333;
             border-radius: 1.2rem;
             padding: 0.9rem 1.2rem;
             font-size: 1rem;
             transition: all 0.2s;
+            color: #f5f5f5;
         }
         .contact-form input:focus, .contact-form textarea:focus {
-            border-color: #4f46e5;
-            box-shadow: 0 0 0 4px rgba(79, 70, 229, 0.15);
+            border-color: #f97316;
+            box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2);
             outline: none;
-            background: white;
+            background: #2a2a2a;
+        }
+        .contact-form input::placeholder, .contact-form textarea::placeholder {
+            color: #6b6b6b;
         }
         .contact-form button {
-            background: var(--primary-gradient);
+            background: var(--orange-gradient);
             border: none;
             border-radius: 3rem;
             padding: 0.9rem 3rem;
             font-weight: 600;
-            box-shadow: 0 15px 25px -8px rgba(79, 70, 229, 0.3);
+            box-shadow: 0 15px 25px -8px rgba(249, 115, 22, 0.3);
             transition: 0.2s;
             color: white;
         }
         .contact-form button:hover {
             transform: scale(1.02);
-            box-shadow: 0 20px 30px -8px #4f46e5;
+            box-shadow: 0 20px 30px -8px #f97316;
         }
+
+        /* -------------------- FOOTER (black/orange) -------------------- */
         .footer-modern {
-            background: #0b1120;
-            color: #94a3b8;
+            background: #0a0a0a;
+            color: #a3a3a3;
             padding: 3rem 0;
+            border-top: 1px solid #f97316;
         }
         .footer-modern a {
-            color: #cbd5e1;
+            color: #f97316;
             transition: 0.2s;
             margin: 0 0.7rem;
         }
         .footer-modern a:hover {
-            color: white;
+            color: #ea580c;
         }
+
+        /* -------------------- UTILITY CLASSES -------------------- */
         .section-padding {
-            padding: 5rem 0;
+            padding: 2rem 0;
         }
-        .bg-soft-gradient {
-            background: linear-gradient(120deg, #ffffff 0%, #f1f5f9 100%);
+
+        /* make any remaining text elements consistent */
+        .text-secondary {
+            color: #a3a3a3 !important;
         }
-        hr {
-            opacity: 0.2;
+
+        /* fix for headings in about */
+        .about-card p {
+            color: #a3a3a3;
         }
-        @media (max-width: 768px) {
-            .carousel-caption-modern h1 { font-size: 2.8rem; }
-            .hero-carousel { min-height: 500px; }
+
+        /* adjust svg illustration colors to match orange/black */
+        .col-lg-6 img {
+            filter: brightness(0.9) contrast(1.1);
         }
     </style>
 </head>
 <body>
 
-<!-- Sticky navbar (modern, blurred) -->
+<!-- ==================== NAVBAR ==================== -->
 <nav class="navbar navbar-expand-lg navbar-modern sticky-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="#">
-            <img src="image/Gamma-Soft-logo.png" alt="GammaSoft logo" width="" height="40" class="">
-            <!-- <i class="fa-solid fa-cube"></i> GammaSoft <span style="font-weight:300; color:#4f46e5;">BD</span> -->
+            <img src="image/Gamma-Soft-logo.png" alt="GammaSoft" class="img-fluid">
         </a>
         <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center">
-                <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Software & Solutions</a></li>
@@ -361,10 +429,10 @@
     </div>
 </nav>
 
-<!-- HERO SECTION – PROFESSIONAL CAROUSEL (images slider) -->
+<!-- ==================== HERO CAROUSEL ==================== -->
 <section class="hero-carousel">
     <div id="gammaHeroCarousel" class="carousel slide carousel-fade h-100" data-bs-ride="carousel" data-bs-interval="5000">
-        <!-- Indicators -->
+        <!-- Indicators (orange) will be orange via CSS -->
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#gammaHeroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#gammaHeroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -372,43 +440,48 @@
         </div>
         
         <div class="carousel-inner h-100">
-            <!-- Slide 1 - Digital Campus / modern office -->
+            <!-- Slide 1 -->
             <div class="carousel-item active h-100">
-                <img src="slider/Ems.png" class="d-block w-100" alt="modern office team">
-                <!-- overlay content (same for all slides to keep message consistent) -->
-                <div class="carousel-caption-modern">
-                    <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
+                <img src="slider/Ems.png" class="d-block w-100" alt="GammaSoft team in modern office – web development experts">
+                <!-- <div class="carousel-caption-modern">
+                    <h1>Smart IT solutions for modern business</h1>
+                    <p class="lead">Web · E‑commerce · Mobile · ERP — crafted in Bangladesh</p>
+                    <div class="d-flex flex-wrap gap-3 justify-content-center mt-2">
                         <a href="#contact" class="btn btn-primary-custom">Meet With Us <i class="fa-regular fa-handshake ms-2"></i></a>
                     </div>
-                    <div class="hero-contact-info mt-5 mx-auto">
+                    <div class="hero-contact-info mt-4 mx-auto">
+                        <i class="fa-regular fa-envelope me-2"></i> gammasoftbd@gmail.com  &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fa-solid fa-phone-volume me-2"></i> 01898-890641
+                    </div>
+                </div> -->
+            </div>
+            <!-- Slide 2 -->
+            <!-- <div class="carousel-item h-100">
+                <img src="slider/Gamma-Flix.png" class="d-block w-100" alt="Developers coding at GammaSoft – software development">
+                <div class="carousel-caption-modern">
+                    <h1>Smart IT solutions for modern business</h1>
+                    <p class="lead">Web · E‑commerce · Mobile · ERP — crafted in Bangladesh</p>
+                    <div class="d-flex flex-wrap gap-3 justify-content-center mt-2">
+                        <a href="#contact" class="btn btn-primary-custom">Meet With Us <i class="fa-regular fa-handshake ms-2"></i></a>
+                    </div>
+                    <div class="hero-contact-info mt-4 mx-auto">
                         <i class="fa-regular fa-envelope me-2"></i> gammasoftbd@gmail.com  &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fa-solid fa-phone-volume me-2"></i> 01898-890641
                     </div>
                 </div>
-            </div>
-            <!-- Slide 2 - Software & coding -->
-            <div class="carousel-item h-100">
-                <img src="slider/Gamma-Flix.png" class="d-block w-100" alt="coding and development">
+            </div> -->
+            <!-- Slide 3 -->
+            <!-- <div class="carousel-item h-100">
+                <img src="slider/Mobile-app-E-commerce-slider.png" class="d-block w-100" alt="GammaSoft mobile app and e-commerce solutions">
                 <div class="carousel-caption-modern">
-                    <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
+                    <h1>Smart IT solutions for modern business</h1>
+                    <p class="lead">Web · E‑commerce · Mobile · ERP — crafted in Bangladesh</p>
+                    <div class="d-flex flex-wrap gap-3 justify-content-center mt-2">
                         <a href="#contact" class="btn btn-primary-custom">Meet With Us <i class="fa-regular fa-handshake ms-2"></i></a>
                     </div>
-                    <div class="hero-contact-info mt-5 mx-auto">
+                    <div class="hero-contact-info mt-4 mx-auto">
                         <i class="fa-regular fa-envelope me-2"></i> gammasoftbd@gmail.com  &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fa-solid fa-phone-volume me-2"></i> 01898-890641
                     </div>
                 </div>
-            </div>
-            <!-- Slide 3 - Campus / education -->
-            <div class="carousel-item h-100">
-                <img src="slider/Mobile-app-E-commerce-slider.png" class="d-block w-100" alt="campus students">
-                <div class="carousel-caption-modern">
-                    <div class="d-flex flex-wrap gap-3 justify-content-center mt-4">
-                        <a href="#contact" class="btn btn-primary-custom">Meet With Us <i class="fa-regular fa-handshake ms-2"></i></a>
-                    </div>
-                    <div class="hero-contact-info mt-5 mx-auto">
-                        <i class="fa-regular fa-envelope me-2"></i> gammasoftbd@gmail.com  &nbsp;&nbsp;|&nbsp;&nbsp; <i class="fa-solid fa-phone-volume me-2"></i> 01898-890641
-                    </div>
-                </div>
-            </div>
+            </div> -->
         </div>
 
         <!-- Controls -->
@@ -423,60 +496,60 @@
     </div>
 </section>
 
-<!-- Services Section (cards with modern UI) -->
+<!-- ==================== SERVICES SECTION ==================== -->
 <section class="section-padding">
     <div class="container">
-        <h2 class="text-center mb-5 w-100">our expertise</h2>
+        <h2 class="text-center mb-5 w-100">Our Expertise</h2>
         <div class="row g-4">
             <div class="col-md-4">
                 <div class="service-card">
-                    <i class="fa-solid fa-cart-shopping feature-icon"></i>
+                    <i class="fa-solid fa-cart-shopping feature-icon" aria-hidden="true"></i>
                     <h5>E-Commerce Solutions</h5>
-                    <p>Smart, secure, and scalable e-commerce solutions to help businesses launch, grow, and succeed online — with seamless UX.</p>
-                    <span class="mt-3 d-inline-block fw-semibold" style="color:#4f46e5;">learn more →</span>
+                    <p>Gamma Soft provides smart, secure, and scalable e-commerce solutions to help businesses launch, grow, and succeed online.</p>
+                    <span class="mt-3 d-inline-block fw-semibold" style="color:#f97316;">learn more →</span>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="service-card">
-                    <i class="fa-solid fa-code feature-icon"></i>
+                    <i class="fa-solid fa-code feature-icon" aria-hidden="true"></i>
                     <h5>Web Design & Development</h5>
                     <p>All types of web solutions including educational websites, company profiles, dynamic portals, and event platforms.</p>
-                    <span class="mt-3 d-inline-block fw-semibold" style="color:#4f46e5;">learn more →</span>
+                    <span class="mt-3 d-inline-block fw-semibold" style="color:#f97316;">learn more →</span>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="service-card">
-                    <i class="fa-solid fa-mobile-screen-button feature-icon"></i>
+                    <i class="fa-solid fa-mobile-screen-button feature-icon" aria-hidden="true"></i>
                     <h5>Software & App Development</h5>
                     <p>Subscription management, ERP, and custom apps for businesses in Bangladesh — robust, cloud-ready, and intuitive.</p>
-                    <span class="mt-3 d-inline-block fw-semibold" style="color:#4f46e5;">learn more →</span>
+                    <span class="mt-3 d-inline-block fw-semibold" style="color:#f97316;">learn more →</span>
                 </div>
             </div>
         </div>
     </div>
 </section>
 
-<!-- Features Section (soft, elegant cards) -->
+<!-- ==================== FEATURES SECTION ==================== -->
 <section class="section-padding bg-soft-gradient">
     <div class="container">
         <div class="row g-4 text-center">
             <div class="col-md-4">
                 <div class="feature-mini-card">
-                    <i class="fa-solid fa-check-double feature-icon"></i>
+                    <i class="fa-solid fa-check-double feature-icon" aria-hidden="true"></i>
                     <h5 class="mt-3">Quality Assurance</h5>
                     <p class="text-secondary">Ensure first and best product quality and service — zero compromise.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-mini-card">
-                    <i class="fa-solid fa-users feature-icon"></i>
+                    <i class="fa-solid fa-users feature-icon" aria-hidden="true"></i>
                     <h5 class="mt-3">Effective Team Work</h5>
                     <p class="text-secondary">Pursue organizational solidity and press on effective teamwork.</p>
                 </div>
             </div>
             <div class="col-md-4">
                 <div class="feature-mini-card">
-                    <i class="fa-solid fa-shield-halved feature-icon"></i>
+                    <i class="fa-solid fa-shield-halved feature-icon" aria-hidden="true"></i>
                     <h5 class="mt-3">Creditable Integrity</h5>
                     <p class="text-secondary">Value talent cultivation and encourage creative innovation.</p>
                 </div>
@@ -485,33 +558,33 @@
     </div>
 </section>
 
-<!-- About Section (clean, minimal) -->
+<!-- ==================== ABOUT SECTION ==================== -->
 <section class="section-padding">
     <div class="container">
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
-                <h2>about Gamma Soft BD</h2>
+                <h2>About Gamma Soft BD</h2>
                 <div class="about-card">
-                    <h5 class="fw-bold" style="color:#1e1b4b;">our mission</h5>
-                    <p class="text-secondary">Exceed client’s expectations by providing the best web and mobile solutions that transform data into knowledge.</p>
+                    <h5 class="fw-bold">our mission</h5>
+                    <p class="text-secondary">Exceed client's expectations by going beyond software to provide best Web and mobile application solutions that transform data into knowledge, enabling them to solve their problems.</p>
                 </div>
                 <div class="about-card mt-4">
-                    <h5 class="fw-bold" style="color:#1e1b4b;">our vision</h5>
-                    <p class="text-secondary">To be a leading software solution company in IT sector, known for reliability, innovation, and user-friendly software.</p>
+                    <h5 class="fw-bold">our vision</h5>
+                    <p class="text-secondary">Our Vision is to be a leading Software Solution company in IT sector and progress in our current position in market. We believe in work with the accuracy and best quality. We want to be known as the reliable, innovative and user friendly software service provider in IT industry.</p>
                 </div>
             </div>
             <div class="col-lg-6">
-                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='400' viewBox='0 0 500 400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%234f46e5' stop-opacity='0.1'/%3E%3Cstop offset='100%25' stop-color='%237c3aed' stop-opacity='0.05'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='400' fill='url(%23g)' rx='40'/%3E%3Cpath d='M150,150 L250,80 L350,150 L350,280 L250,340 L150,280 Z' fill='%234f46e5' opacity='0.2'/%3E%3Ccircle cx='250' cy='190' r='35' fill='%234f46e5' opacity='0.2'/%3E%3Ctext x='180' y='260' font-family='Inter' font-size='28' fill='%23334155' font-weight='300'%3E%3Ctspan x='180' dy='0'%3EGamma%3C/tspan%3E%3Ctspan x='180' dy='40' font-weight='600' fill='%234f46e5'%3ESoft BD%3C/tspan%3E%3C/text%3E%3C/svg%3E" alt="GammaSoft abstract" class="img-fluid rounded-5 shadow-sm">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='400' viewBox='0 0 500 400'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316' stop-opacity='0.2'/%3E%3Cstop offset='100%25' stop-color='%23ea580c' stop-opacity='0.1'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='400' fill='url(%23g)' rx='40'/%3E%3Cpath d='M150,150 L250,80 L350,150 L350,280 L250,340 L150,280 Z' fill='%23f97316' opacity='0.3'/%3E%3Ccircle cx='250' cy='190' r='35' fill='%23f97316' opacity='0.2'/%3E%3Ctext x='180' y='260' font-family='Inter' font-size='28' fill='%23e5e5e5' font-weight='300'%3E%3Ctspan x='180' dy='0'%3EGamma%3C/tspan%3E%3Ctspan x='180' dy='40' font-weight='600' fill='%23f97316'%3ESoft BD%3C/tspan%3E%3C/text%3E%3C/svg%3E" alt="GammaSoft BD abstract illustration – innovation and technology" class="img-fluid rounded-5 shadow-sm">
             </div>
         </div>
     </div>
 </section>
 
-<!-- Contact Section (glassmorphism) -->
+<!-- ==================== CONTACT SECTION ==================== -->
 <section id="contact" class="contact-section section-padding">
     <div class="container">
-        <h2 class="text-center mb-5 w-100" style="color:#1e1b4b;">let’s work together</h2>
-        <form class="row g-4 justify-content-center contact-form">
+        <h2 class="text-center mb-5 w-100" style="color:#000000;">Let’s work together</h2>
+        <form class="row g-4 justify-content-center contact-form" action="#" method="post">
             <div class="col-md-5">
                 <input type="text" class="form-control" placeholder="Your full name" required>
             </div>
@@ -534,14 +607,14 @@
     </div>
 </section>
 
-<!-- Footer (elegant, minimal) -->
+<!-- ==================== FOOTER ==================== -->
 <footer class="footer-modern">
     <div class="container text-center">
         <div class="d-flex justify-content-center gap-4 mb-4">
-            <a href="#"><i class="fab fa-facebook-f fa-lg"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in fa-lg"></i></a>
-            <a href="#"><i class="fab fa-x-twitter fa-lg"></i></a>
-            <a href="#"><i class="fa-regular fa-envelope fa-lg"></i></a>
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f fa-lg"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in fa-lg"></i></a>
+            <a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter fa-lg"></i></a>
+            <a href="#" aria-label="Email"><i class="fa-regular fa-envelope fa-lg"></i></a>
         </div>
         <p class="mb-0 small">© 2026 Gamma Soft BD. All rights reserved. —  <span class="text-secondary">Dhaka | Chittagong</span></p>
         <p class="mt-2 small text-secondary opacity-50"><i class="fa-regular fa-building me-1"></i> innovation · integrity · impact</p>

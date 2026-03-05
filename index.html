@@ -16,7 +16,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <!-- favicon inline (orange/black theme) -->
-    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%23ea580c'/%3E%3C/linearGradient%3E%3Ccircle cx='50' cy='50' r='45' fill='url(%23g)'/%3E%3Ctext x='24' y='68' font-family='Inter' font-size='48' fill='white' font-weight='700'%3EG%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+    <!-- <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23f97316'/%3E%3Cstop offset='100%25' stop-color='%23ea580c'/%3E%3C/linearGradient%3E%3Ccircle cx='50' cy='50' r='45' fill='url(%23g)'/%3E%3Ctext x='24' y='68' font-family='Inter' font-size='48' fill='white' font-weight='700'%3EG%3C/text%3E%3C/svg%3E" type="image/svg+xml"> -->
+    <link rel="icon" href="image/Gamma-Soft-logo.png" type="image/svg+xml">
     <style>
         /* -------------------- GLOBAL RESET & VARIABLES (ORANGE + BLACK) -------------------- */
         * {
@@ -73,9 +74,9 @@
 
         /* -------------------- TOP BAR (new, from image) -------------------- */
         .top-bar {
-            background: #0c0c0c;
+            background: #504f4f;
             border-bottom: 1px solid rgba(249, 115, 22, 0.25);
-            padding: 0.6rem 0;
+            padding: 0.3rem 0;
             font-size: 0.9rem;
             color: #ddd;
         }
@@ -137,7 +138,7 @@
             max-height: 45px;
             width: auto;
             height: auto;
-            filter: brightness(1) invert(0);
+            filter: brightness(0) invert(1) contrast(1.2);
         }
         .navbar .nav-link {
             font-weight: 600;
@@ -171,6 +172,35 @@
             height: 1.6em;
         }
 
+        /* dropdown hover show */
+        .navbar .dropdown:hover .dropdown-menu{
+            display: block;
+            margin-top: 0;
+        }
+
+        /* smooth animation */
+        .dropdown-menu{
+            border-radius: 10px;
+            border: 1px solid rgba(249,115,22,0.2);
+            transition: all 0.3s ease;
+        }
+
+        /* dropdown item style */
+        .dropdown-menu .dropdown-item{
+            color: #f0f0f0;
+            font-weight: 500;
+            padding: 10px 18px;
+        }
+
+        .dropdown-menu .dropdown-item:hover{
+            background: rgba(249,115,22,0.15);
+            color: #f97316;
+        }
+        .dropdown-menu{
+            box-shadow:0 10px 30px rgba(0,0,0,0.4);
+            border-radius:10px;
+            }
+
         /* -------------------- HERO CAROUSEL -------------------- */
         .hero-carousel {
             height: 85vh;
@@ -185,7 +215,7 @@
             object-fit: cover;
             height: 100%;
             width: 100%;
-            filter: brightness(0.6);
+            filter: brightness(0.9);
         }
         .hero-carousel .carousel-item::after {
             content: '';
@@ -432,7 +462,7 @@
             border-bottom: 1px solid #f97316;
         }
         .contact-form input, .contact-form textarea {
-            background: #222;
+            background: #8e847f;
             border: 1px solid #333;
             border-radius: 1.2rem;
             padding: 0.9rem 1.2rem;
@@ -444,7 +474,7 @@
             border-color: #f97316;
             box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.2);
             outline: none;
-            background: #2a2a2a;
+            background: #f5f5f5;
         }
         .contact-form button {
             background: var(--orange-gradient);
@@ -461,6 +491,63 @@
             box-shadow: 0 20px 30px -8px #f97316;
         }
 
+         /* Partners Section */
+        .partners-section{
+            background:#070707;
+            padding:0px 0;
+            overflow:hidden;
+            }
+
+            .logo-slider{
+            overflow:hidden;
+            position:relative;
+            }
+
+            .logo-track{
+            display:flex;
+            width:calc(200px * 10);
+            animation:scroll 20s linear infinite;
+            }
+
+            .logo-item{
+                /* border: 1px solid orange; */
+            width:200px;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            padding:15px;
+            }
+
+            .logo-item img{
+                border: 1px solid orange;
+                max-height:70px;
+                opacity:.8;
+                transition:.3s;
+            }
+
+            .logo-item img:hover{
+            opacity:1;
+            transform:scale(1.05);
+            }
+
+            /* animation */
+
+            @keyframes scroll{
+
+            0%{
+            transform:translateX(0);
+            }
+
+            100%{
+            transform:translateX(-50%);
+            }
+
+            }
+            .logo-slider:hover .logo-track{
+            animation-play-state:paused;
+            }
+
+        /* Footer   Section */
         .footer-modern {
             background: #0a0a0a;
             color: #a3a3a3;
@@ -485,6 +572,8 @@
         img.rounded-5 {
             border-radius: 2rem !important;
         }
+
+
     </style>
 </head>
 <body>
@@ -492,14 +581,15 @@
 <!-- ==================== TOP BAR (Meet With Us | email | phone) ==================== -->
 <div class="top-bar">
     <div class="container">
-        <div class="contact-item meet-text">
-            <i class="fa-regular fa-handshake"></i> <span>Meet With Us</span>
-        </div>
+  
         <div class="contact-item">
             <i class="fa-regular fa-envelope"></i> <span>gammasoftbd@gmail.com</span>
         </div>
         <div class="contact-item">
             <i class="fa-solid fa-phone-volume"></i> <span>+88-01898-890641</span>
+        </div>
+        <div class="contact-item meet-text">
+            <i class="fa-regular fa-handshake"></i> <span>Meet With Us</span>
         </div>
     </div>
 </div>
@@ -517,7 +607,25 @@
             <ul class="navbar-nav ms-auto align-items-center">
                 <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
-                <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+                
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button">
+                        Services
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-dark">
+                        <a class="dropdown-item" href="./slider/pages/services/services.html">CATV Solutions</a>
+                        <!-- <li><a class="dropdown-item" href="/slider/pages/servises/servises.html">CATV Solutions</a></li> -->
+                        <li><a class="dropdown-item" href="#">Digital Marketing & SEO</a></li>
+                        <li><a class="dropdown-item" href="#">E-Commerce Solutions</a></li>
+                        <li><a class="dropdown-item" href="#">Graphics & Motion Design</a></li>
+                        <li><a class="dropdown-item" href="#">Web Design & Development</a></li>
+                        <li><a class="dropdown-item" href="#">IT Services & Consultancy</a></li>
+                        <li><a class="dropdown-item" href="#"> Mobile Apps Development</a></li>
+                        <li><a class="dropdown-item" href="#">Search Engine Optimization</a></li>
+                        <li><a class="dropdown-item" href="#">Web Application Development</a></li>
+                    </ul>
+                </li>
+                <!-- <li class="nav-item"><a class="nav-link" href="#">Services</a></li> -->
                 <li class="nav-item"><a class="nav-link" href="#">Software & Solutions</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">News & Events</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -583,6 +691,30 @@
                     <h5>Software & App Development</h5>
                     <p>Subscription management, ERP, and custom apps for businesses in Bangladesh — robust, cloud-ready, and intuitive.</p>
                     <span class="mt-3 d-inline-block fw-semibold" style="color:#f97316;">learn more →</span>
+                </div>
+            </div>
+        </div>
+        <!-- given more releven adn proffessional icon  -->
+        <div class="row g-4 mt-1">
+            <div class="col-md-4">
+                <div class="service-card">
+                     <i class="fa-solid fa-paintbrush feature-icon"></i>
+                    <h5>Graphics design </h5>
+                    <p>Gammasoft has expert and creative design for any kind of graphical design.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <i class="fa-solid fa-chart-line feature-icon"></i>
+                    <h5>Digital Marketing & SEO </h5>
+                    <p>You can contact with gammasoft for promote your business as digital way.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="service-card">
+                    <i class="fa-solid fa-satellite-dish feature-icon"></i>
+                    <h5>CATV Solutions</h5>
+                    <p>Gammasoft is the trusted friend of cable traders. We are with you in any kind of cooperation.</p>
                 </div>
             </div>
         </div>
@@ -772,10 +904,10 @@
                 <input type="email" class="form-control" placeholder="Email address" required>
             </div>
             <div class="col-md-5">
-                <input type="text" class="form-control" placeholder="Phone number (optional)">
+                <input type="text" class="form-control" placeholder="Phone number" required>
             </div>
             <div class="col-md-5">
-                <input type="text" class="form-control" placeholder="Company / Institute">
+                <input type="text" class="form-control" placeholder="Company / Institute" required>
             </div>
             <div class="col-12">
                 <textarea class="form-control" rows="5" placeholder="Tell us about your requirements ..." required></textarea>
@@ -789,7 +921,59 @@
 
 
 <!-- ==================== OUR PARTNERS SECTION ==================== -->
-<section id="partners" class="partners-section section-padding">
+<section class="partners-section">
+    <div class="container">
+
+        <div class="logo-slider">
+            <div class="logo-track">
+
+                <div class="logo-item">
+                    <img src="image/partners/Tamanna-Pharmecy-Logo.png" alt="">
+                </div>
+
+                <div class="logo-item">
+                    <img src="image/partners/Tamanna-Pharmecy-Logo.png" alt="">
+                </div>
+
+                <div class="logo-item">
+                    <img src="image/partners/ACN-Digital.png" alt="">
+                </div>
+
+                <div class="logo-item">
+                    <img src="image/partners/Cable-One-Logo.png" alt="">
+                </div>
+
+                <div class="logo-item">
+                    <img src="image/partners/Jeshore-City-Cable.png" alt="">
+                </div>
+
+                <!-- duplicate logos for smooth infinite scroll -->
+                <div class="logo-item">
+                    <img src="image/partners/Tamanna-Pharmecy-Logo.png" alt="">
+                </div>
+
+                <div class="logo-item">
+                    <img src="image/partners/Tamanna-Pharmecy-Logo.png" alt="">
+                </div>
+
+                <div class="logo-item">
+                    <img src="image/partners/ACN-Digital.png" alt="">
+                </div>
+
+                <div class="logo-item">
+                    <img src="image/partners/Cable-One-Logo.png" alt="">
+                </div>
+
+                <div class="logo-item">
+                    <img src="image/partners/Jeshore-City-Cable.png" alt="">
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- <section id="partners" class="partners-section section-padding">
     <div class="container">
         <div class="row g-4 justify-content-center">
             <div class="col-6 col-md-3 text-center">
@@ -814,7 +998,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
-</section>    
+</section>     -->
 
 <!-- ==================== FOOTER ==================== -->
 <footer class="footer-modern">
@@ -825,7 +1009,7 @@
             <a href="#" aria-label="X (Twitter)"><i class="fab fa-x-twitter fa-lg"></i></a>
             <a href="#" aria-label="Email"><i class="fa-regular fa-envelope fa-lg"></i></a>
         </div>
-        <p class="mb-0 small">© 2026 Gamma Soft BD. All rights reserved. —  <span class="text-secondary">Dhaka | Chittagong</span></p>
+        <p class="mb-0 small">© 2026 Gamma Soft BD. All rights reserved. —  <span class="text-secondary">Motahar Lodge (7A), 04 Purana Paltan, Dhaka-1000 .</span></p>
         <p class="mt-2 small text-secondary opacity-50"><i class="fa-regular fa-building me-1"></i> innovation · integrity · impact</p>
     </div>
 </footer>

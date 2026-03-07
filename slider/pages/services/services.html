@@ -14,276 +14,402 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="../../image/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../../../main.css">
     <style>
-        /* ========== GLOBAL STYLES (same as index) ========== */
-        @media (min-width: 1400px) {
-            .container {
-                max-width: 1400px !important;
+        /* ==================== SERVICES LIST SHOWCASE (LEFT LIST / ACTIVE DETAIL) ==================== */
+
+        .services-showcase {
+        padding: 4rem 0;
+        background-color: #0a0a0a; /* deep black base */
+        }
+
+        .services-showcase .container {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 0 1rem;
+        }
+
+        /* two-column layout */
+        .services-showcase .services-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        }
+
+        /* left column: service list */
+        .services-showcase .services-list-col {
+        flex: 1 1 300px; /* min width 300px, can grow */
+        background: #1a1a1a;
+        border-radius: 2rem;
+        padding: 2rem 1rem;
+        border: 1px solid #2a2a2a;
+        box-shadow: 0 15px 30px -12px rgba(0,0,0,0.7);
+        height: fit-content;
+        }
+
+        /* right column: active service details */
+        .services-showcase .services-detail-col {
+        flex: 2 1 500px;
+        background: #1f1f1f;
+        border-radius: 2rem;
+        padding: 2rem;
+        border: 1px solid #333;
+        box-shadow: 0 20px 35px -10px rgba(249,115,22,0.2);
+        transition: border-color 0.2s ease;
+        }
+
+        .services-showcase .services-detail-col:hover {
+        border-color: #f97316;
+        }
+
+        /* service list items */
+        .services-showcase .service-list-item {
+        display: flex;
+        align-items: center;
+        padding: 1.2rem 1.5rem;
+        margin-bottom: 0.5rem;
+        border-radius: 1.5rem;
+        background: transparent;
+        border: none;
+        width: 100%;
+        text-align: left;
+        color: #e0e0e0;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        cursor: pointer;
+        border: 1px solid transparent;
+        }
+
+        .services-showcase .service-list-item i {
+        font-size: 1.8rem;
+        background: linear-gradient(135deg, #f97316, #ea580c);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-right: 1rem;
+        min-width: 2.2rem;
+        text-align: center;
+        }
+
+        .services-showcase .service-list-item span {
+        flex: 1;
+        font-size: 1.1rem;
+        letter-spacing: -0.01em;
+        }
+
+        .services-showcase .service-list-item:hover {
+        background: rgba(249, 115, 22, 0.1);
+        border-color: rgba(249, 115, 22, 0.3);
+        transform: translateX(5px);
+        }
+
+        /* active list item */
+        .services-showcase .service-list-item.active {
+        background: linear-gradient(90deg, rgba(249,115,22,0.2), rgba(249,115,22,0.05));
+        border-left: 6px solid #f97316;
+        border-radius: 1.5rem 0.8rem 0.8rem 1.5rem;
+        box-shadow: inset 0 2px 8px rgba(249,115,22,0.2);
+        }
+
+        .services-showcase .service-list-item.active i {
+        background: white;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        text-shadow: 0 0 8px #f97316;
+        }
+
+        /* right side detail panel */
+        .services-showcase .service-detail-icon {
+        font-size: 3.5rem;
+        background: linear-gradient(135deg, #f97316, #ea580c);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        margin-bottom: 1rem;
+        display: inline-block;
+        }
+
+        .services-showcase .service-detail-title {
+        font-size: 2.2rem;
+        font-weight: 700;
+        color: #ffffff;
+        margin-bottom: 1rem;
+        letter-spacing: -0.02em;
+        }
+
+        .services-showcase .service-detail-title span {
+        color: #f97316;
+        }
+
+        .services-showcase .service-detail-description {
+        color: #b0b0b0;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 1.5rem;
+        }
+
+        .services-showcase .service-detail-features {
+        list-style: none;
+        padding: 0;
+        margin: 0 0 2rem 0;
+        }
+
+        .services-showcase .service-detail-features li {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+        padding: 0.6rem 0;
+        color: #d0d0d0;
+        border-bottom: 1px dashed #2a2a2a;
+        }
+
+        .services-showcase .service-detail-features li:last-child {
+        border-bottom: none;
+        }
+
+        .services-showcase .service-detail-features i {
+        color: #f97316;
+        font-size: 1.2rem;
+        width: 1.5rem;
+        }
+
+        .services-showcase .service-detail-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.8rem;
+        background: linear-gradient(90deg, #f97316, #ea580c);
+        color: white;
+        font-weight: 600;
+        padding: 0.9rem 2.5rem;
+        border-radius: 3rem;
+        text-decoration: none;
+        box-shadow: 0 15px 25px -8px rgba(249,115,22,0.5);
+        transition: all 0.2s ease;
+        border: 1px solid rgba(255,165,0,0.3);
+        }
+
+        .services-showcase .service-detail-cta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 20px 30px -8px #f97316;
+        }
+
+        /* optional image inside detail */
+        .services-showcase .service-detail-image {
+        width: 100%;
+        border-radius: 1.5rem;
+        margin-top: 1.5rem;
+        border: 1px solid #333;
+        transition: 0.2s;
+        }
+
+        .services-showcase .service-detail-image:hover {
+        border-color: #f97316;
+        }
+
+        /* ==================== BLOG-STYLE DETAIL PANEL ==================== */
+            /* Use this inside .services-detail-col to match the image layout */
+
+            .services-detail-col {
+            /* existing styles remain */
             }
-        }
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        body {
-            font-family: "Inter", system-ui, sans-serif;
-            line-height: 1.5;
-            background-color: #0a0a0a;
-            color: #e5e5e5;
-            scroll-behavior: smooth;
-        }
-        :root {
-            --primary-deep: #0a0a0a;
-            --primary-orange: #f97316;
-            --orange-dark: #ea580c;
-            --orange-soft: #ffedd5;
-            --orange-gradient: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-            --gray-charcoal: #1f1f1f;
-            --gray-mid: #2a2a2a;
-            --text-light: #f5f5f5;
-            --text-muted: #a3a3a3;
-            --shadow-sm: 0 10px 25px -5px rgba(249, 115, 22, 0.2);
-            --shadow-hover: 0 20px 30px -10px rgba(249, 115, 22, 0.4);
-            --border-radius-card: 1.5rem;
-            --border-radius-btn: 3rem;
-            --transition-default: all 0.2s ease;
-        }
-        h1, h2, h3, h4, h5 {
-            font-weight: 600;
-            letter-spacing: -0.02em;
-            color: #ffffff;
-        }
-        h2 {
-            font-size: 2.2rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-            display: inline-block;
-        }
-        p {
-            color: #c0c0c0;
-        }
-        .text-orange {
-            color: var(--primary-orange) !important;
-        }
 
-        /* top bar */
-        .top-bar {
-            background: #504f4f;
-            border-bottom: 1px solid rgba(249, 115, 22, 0.25);
-            padding: 0.6rem 0;
-            font-size: 0.9rem;
-            color: #ddd;
-        }
-        .top-bar .container {
+            /* blog post list container */
+            .service-blog-posts {
             display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 0.8rem 1.5rem;
-        }
-        .top-bar .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            color: #e0e0e0;
-            transition: var(--transition-default);
-        }
-        .top-bar .contact-item i {
-            color: var(--primary-orange);
-            font-size: 1rem;
-            width: 1.2rem;
-            text-align: center;
-        }
-        .top-bar .contact-item:hover {
-            color: white;
-        }
-        .top-bar .meet-text {
-            font-weight: 600;
-            letter-spacing: 0.3px;
-            background: rgba(249, 115, 22, 0.12);
-            padding: 0.25rem 1rem;
-            border-radius: 40px;
-            border: 1px solid rgba(249, 115, 22, 0.3);
-            color: #f97316;
-        }
-        .top-bar .meet-text i {
-            color: #f97316;
-            margin-right: 0.4rem;
-        }
-        @media (max-width: 576px) {
-            .top-bar .container { justify-content: center; }
-        }
+            flex-direction: column;
+            gap: 2rem;
+            }
 
-        /* navbar */
-        .navbar-modern {
-            backdrop-filter: blur(12px);
-            background: rgba(11, 11, 11, 0.95) !important;
-            box-shadow: 0 4px 30px rgba(249, 115, 22, 0.1);
-            border-bottom: 1px solid rgba(249, 115, 22, 0.2);
-        }
-        .navbar-brand img {
-            max-height: 45px;
-            width: auto;
-            filter: brightness(0) invert(1) contrast(1.2);
-        }
-        .navbar .nav-link {
-            font-weight: 600;
-            color: #f0f0f0;
-            margin: 0 0.2rem;
-            padding: 0.5rem 0.6rem !important;
-            border-radius: 2rem;
-            transition: var(--transition-default);
-        }
-        .navbar .nav-link:hover,
-        .navbar .nav-link.active,
-        .navbar .nav-link.show {   /* for dropdown toggle when active */
-            background: rgba(249, 115, 22, 0.15);
-            color: var(--primary-orange);
-        }
-        .navbar-toggler {
-            border: 1px solid rgba(249,115,22,0.5);
-            background: transparent;
-            padding: 0.5rem 0.7rem;
-            border-radius: 0.7rem;
-        }
-        .navbar-toggler:focus {
-            box-shadow: 0 0 0 3px rgba(249,115,22,0.3);
-            outline: none;
-        }
-        .navbar-toggler-icon {
-            background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(249,115,22,1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-            width: 1.6em;
-            height: 1.6em;
-        }
+            /* individual blog card */
+            .blog-post-card {
+            background: #1a1a1a;
+            border-radius: 1.5rem;
+            padding: 1.8rem;
+            border: 1px solid #2a2a2a;
+            transition: all 0.2s ease;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+            }
 
-        /* dropdown hover */
-        .navbar .dropdown:hover .dropdown-menu {
-            display: block;
-            margin-top: 0;
-        }
-        .dropdown-menu {
-            background-color: #1a1a1a;
-            border: 1px solid rgba(249,115,22,0.2);
-            border-radius: 10px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.4);
-            padding: 0.5rem 0;
-        }
-        .dropdown-menu .dropdown-item {
-            color: #f0f0f0;
-            font-weight: 500;
-            padding: 10px 18px;
-            transition: 0.2s;
-        }
-        .dropdown-menu .dropdown-item:hover {
-            background: rgba(249,115,22,0.15);
-            color: #f97316;
-        }
+            .blog-post-card:hover {
+            border-color: var(--primary-orange, #f97316);
+            transform: translateY(-4px);
+            box-shadow: 0 15px 30px -8px rgba(249,115,22,0.3);
+            }
 
-        /* service list cards (for the bullet list) */
-        .service-list-item {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: #1f1f1f;
-            border: 1px solid #333;
-            border-radius: 2rem;
-            padding: 0.8rem 1.5rem;
-            margin-bottom: 0.8rem;
-            transition: var(--transition-default);
-        }
-        .service-list-item:hover {
-            border-color: var(--primary-orange);
-            transform: translateX(5px);
-            box-shadow: 0 5px 15px rgba(249,115,22,0.2);
-        }
-        .service-list-icon {
-            font-size: 1.8rem;
-            background: var(--orange-gradient);
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            min-width: 2.2rem;
-            text-align: center;
-        }
-        .service-list-text {
-            font-weight: 500;
-            color: #f0f0f0;
-            font-size: 1.1rem;
-        }
-
-        /* info cards (for the three descriptions) */
-        .info-card {
-            background: #1f1f1f;
-            border-radius: 2rem;
-            padding: 2rem 1.8rem;
-            border: 1px solid #333;
-            height: 100%;
-            transition: 0.2s;
-        }
-        .info-card:hover {
-            border-color: var(--primary-orange);
-            box-shadow: 0 15px 30px -12px rgba(249,115,22,0.3);
-        }
-        .info-card h3 {
+            /* post title */
+            .blog-post-title {
             font-size: 1.5rem;
-            margin-bottom: 1.2rem;
-            color: #f97316;
-        }
-        .info-card p {
-            color: #b0b0b0;
-            margin-bottom: 1.5rem;
-        }
-        .read-more {
-            color: #f97316;
-            font-weight: 600;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+            letter-spacing: -0.02em;
+            }
+
+            .blog-post-title a {
+            color: inherit;
             text-decoration: none;
+            transition: color 0.2s;
+            }
+
+            .blog-post-title a:hover {
+            color: var(--primary-orange, #f97316);
+            }
+
+            /* post excerpt */
+            .blog-post-excerpt {
+            color: #b0b0b0;
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 1.2rem;
+            }
+
+            /* read more link */
+            .blog-readmore {
             display: inline-flex;
             align-items: center;
-            gap: 0.3rem;
+            gap: 0.4rem;
+            color: var(--primary-orange, #f97316);
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: gap 0.2s;
+            }
+
+            .blog-readmore i {
+            font-size: 0.8rem;
+            transition: transform 0.2s;
+            }
+
+            .blog-readmore:hover {
+            gap: 0.8rem;
+            color: #ffb347;
+            }
+
+            .blog-readmore:hover i {
+            transform: translateX(4px);
+            }
+
+            /* optional post meta (date, comments) */
+
+            /* responsive */
+            @media (max-width: 576px) {
+            .blog-post-title {
+                font-size: 1.3rem;
+            }
+            .blog-post-card {
+                padding: 1.4rem;
+            }
+            }
+
+        /* responsive stacking */
+        @media (max-width: 768px) {
+        .services-showcase .services-row {
+            flex-direction: column;
         }
-        .read-more:hover {
-            text-decoration: underline;
+        
+        .services-showcase .services-list-col,
+        .services-showcase .services-detail-col {
+            width: 100%;
+        }
+        
+        .services-showcase .service-list-item {
+            padding: 1rem;
+        }
+        
+        .services-showcase .service-detail-title {
+            font-size: 1.8rem;
+        }
         }
 
-        /* section spacing */
-        .section-padding {
-            padding: 4rem 0;
-        }
-        .bg-soft-gradient {
-            background: #151515;
+        /* subtle animation for detail changes (if content changes via JS) */
+        .services-showcase .services-detail-col {
+        animation: fadeSlideIn 0.3s ease;
         }
 
-        /* footer */
-        .footer-modern {
-            background: #0a0a0a;
-            color: #a3a3a3;
-            padding: 3rem 0;
-            border-top: 1px solid #f97316;
+        @keyframes fadeSlideIn {
+        0% {
+            opacity: 0.6;
+            transform: translateY(5px);
         }
-        .footer-modern a {
-            color: #f97316;
-            transition: 0.2s;
-            margin: 0 0.7rem;
+        100% {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .footer-modern a:hover {
-            color: #ea580c;
         }
+
+        /* ==================== HORIZONTAL BLOG CARD (image left, content right) ==================== */
+            .blog-post-card.horizontal {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+            padding: 1.5rem;
+            }
+
+            .blog-post-card.horizontal img {
+            width: 160px;           /* fixed width for consistency */
+            height: 120px;
+            object-fit: cover;
+            border-radius: 1rem;
+            border: 1px solid #2a2a2a;
+            transition: border-color 0.2s ease;
+            flex-shrink: 0;          /* prevent image from shrinking */
+            }
+
+            .blog-post-card.horizontal:hover img {
+            border-color: var(--primary-orange, #f97316);
+            }
+
+            .blog-post-card.horizontal .blog-content {
+            flex: 1;                 /* take remaining space */
+            }
+
+            .blog-post-card.horizontal .blog-post-title {
+            margin-top: 0;           /* remove extra top space */
+            margin-bottom: 0.5rem;
+            font-size: 1.4rem;       /* slightly smaller for balance */
+            }
+
+            .blog-post-card.horizontal .blog-post-excerpt {
+            margin-bottom: 0.8rem;
+            }
+
+            /* responsive: stack on mobile */
+            @media (max-width: 576px) {
+            .blog-post-card.horizontal {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .blog-post-card.horizontal img {
+                width: 100%;
+                height: auto;
+                aspect-ratio: 16 / 9;
+            }
+            }
     </style>
+    
 </head>
 <body>
 
 <!-- ==================== TOP BAR ==================== -->
 <div class="top-bar">
     <div class="container">
-        <div class="contact-item meet-text">
-            <i class="fa-regular fa-handshake"></i> <span>Meet With Us</span>
-        </div>
+  
         <div class="contact-item">
             <i class="fa-regular fa-envelope"></i> <span>gammasoftbd@gmail.com</span>
         </div>
         <div class="contact-item">
             <i class="fa-solid fa-phone-volume"></i> <span>+88-01898-890641</span>
+        </div>
+        <div class="contact-item meet-text">
+            <a href="https://calendly.com/gammasoftbd/30min" target="_blank">
+                <button class="btn btn-meet">
+                    <i class="flaticon-people-2"></i> Meet With Us
+                </button>
+            </a>
         </div>
     </div>
 </div>
@@ -292,14 +418,15 @@
 <nav class="navbar navbar-expand-lg navbar-modern sticky-top">
     <div class="container">
         <a class="navbar-brand d-flex align-items-center" href="../../index.html">
-            <img src="../../image/Gamma-Soft-logo.png" alt="GammaSoft" class="img-fluid">
+            <img src="../../../image/Gamma-Soft-logo.png" alt="GammaSoft" class="img-fluid">
+            <!-- <img src="../../image/Gamma-Soft-logo.png" alt="GammaSoft" class="img-fluid"> -->
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center">
-                <li class="nav-item"><a class="nav-link" href="../../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link" href="../../../index.html">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#">Company Profile</a></li>
                 
                 <!-- Services dropdown – active on this page -->
@@ -329,88 +456,92 @@
 </nav>
 
 <!-- ==================== MAIN CONTENT: CATV SOLUTIONS ==================== -->
-<section class="section-padding">
-    <div class="container">
-        <!-- page title -->
-        <h1 class="display-4 fw-bold mb-4" style="color: #f97316;">CATV Solutions</h1>
-        <p class="lead mb-5" style="color: #d0d0d0;">Complete cable television and digital broadcasting solutions tailored for modern operators.</p>
+<section class="services-showcase">
+  <div class="container">
+    <div class="services-row">
 
-        <!-- list of services (two columns) -->
-        <div class="row g-4 mb-5">
-            <div class="col-lg-6">
-                <div class="service-list-item">
-                    <i class="fa-solid fa-chart-line service-list-icon"></i>
-                    <span class="service-list-text">Digital Marketing Solution</span>
-                </div>
-                <div class="service-list-item">
-                    <i class="fa-solid fa-cart-shopping service-list-icon"></i>
-                    <span class="service-list-text">E-Commerce Solution</span>
-                </div>
-                <div class="service-list-item">
-                    <i class="fa-solid fa-pen-fancy service-list-icon"></i>
-                    <span class="service-list-text">Graphics & Motion Design</span>
-                </div>
-                <div class="service-list-item">
-                    <i class="fa-solid fa-headset service-list-icon"></i>
-                    <span class="service-list-text">IT Service & Consultancy</span>
-                </div>
-                <div class="service-list-item">
-                    <i class="fa-solid fa-mobile-screen-button service-list-icon"></i>
-                    <span class="service-list-text">Mobile Apps Development</span>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="service-list-item">
-                    <i class="fa-solid fa-magnifying-glass-chart service-list-icon"></i>
-                    <span class="service-list-text">Search Engine Optimization</span>
-                </div>
-                <div class="service-list-item">
-                    <i class="fa-solid fa-code service-list-icon"></i>
-                    <span class="service-list-text">Software Development</span>
-                </div>
-                <div class="service-list-item">
-                    <i class="fa-solid fa-globe service-list-icon"></i>
-                    <span class="service-list-text">Web Application Development</span>
-                </div>
-                <!-- extra item from the list (already covered) but we can leave as is -->
-            </div>
+        <div class="services-list-col">
+            <div class="service-list-item">Digital Marketing & SEO</div>
+            <div class="service-list-item ">E-Commerce Solutions</div>
+            <div class="service-list-item ">Graphics & Motion Design</div>
+            <div class="service-list-item ">Web Design & Development</div>
+            <div class="service-list-item  active">IT Services & Consultancy</div>
+            <div class="service-list-item ">Mobile Apps Development</div>
+            <div class="service-list-item ">Search Engine Optimization</div>
+            <div class="service-list-item ">Web Application Development</div>
         </div>
+        <div class="services-detail-col">
+            <div class="service-blog-posts">
 
-        <!-- three info cards (IPTV, CATV, Cable Television) -->
-        <div class="row g-4">
-            <!-- IPTV, OTT and DVBC Hardware and Software Solutions -->
-            <div class="col-md-4">
-                <div class="info-card">
-                    <h3><i class="fa-solid fa-tower-broadcast me-2" style="color: #f97316;"></i> IPTV, OTT & DVBC</h3>
-                    <p>Cable television systems have moved far beyond simple delivery of TV programming to include high-speed data services, voice telephony, networking, transactional delivery of digital video under interactive control, and targeted advertising. To manage this complex business, what was formerly known simply as...</p>
-                    <a href="#" class="read-more">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                <!-- Post 1 -->
+               <article class="blog-post-card horizontal">
+                <img src="https://th.bing.com/th/id/R.553e3c9153252c16984cc380d27e95fd?rik=%2bfnYmGXQ2fyOBA&riu=http%3a%2f%2fichef-1.bbci.co.uk%2fnews%2f976%2fmedia%2fimages%2f83351000%2fjpg%2f_83351965_explorer273lincolnshirewoldssouthpicturebynicholassilkstone.jpg&ehk=i497%2bPXcVbzBCanglNEGzIQU3A%2bZDA8RLkL82QdtKIE%3d&risl=&pid=ImgRaw&r=0" alt="Digital Marketing">
+                <div class="blog-content">
+                    <h3 class="blog-post-title">
+                    <a href="#">Unleashing the Power of Digital Marketing and SEO in Bangladesh</a>
+                    </h3>
+                    <p class="blog-post-excerpt">
+                    In today’s rapidly changing digital environment...
+                    </p>
+                    <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
                 </div>
-            </div>
-            <!-- CATV -->
-            <div class="col-md-4">
-                <div class="info-card">
-                    <h3><i class="fa-solid fa-satellite-dish me-2" style="color: #f97316;"></i> CATV</h3>
-                    <p>CATV originally stood for Community Access Television but is now more commonly known as Cable TV. CATV is one of the most common methods of transmitting television signals to a consumer’s home, using radio frequency signals transmitting through coaxial cable. More recently, CATV can also transmit over optical fiber, which...</p>
-                    <a href="#" class="read-more">Read more <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-            <!-- Cable Television -->
-            <div class="col-md-4">
-                <div class="info-card">
-                    <h3><i class="fa-solid fa-tv me-2" style="color: #f97316;"></i> Cable Television</h3>
-                    <p>Cable television, generally, is any system that distributes television signals by means of coaxial or fiber‑optic cables. The term also includes systems that distribute signals solely via satellite. Cable television systems originated in the United States in the late 1940s and were designed to improve the reception of commercial network...</p>
-                    <a href="#" class="read-more">Read more <i class="fa-solid fa-arrow-right"></i></a>
-                </div>
-            </div>
-        </div>
+                </article>
 
-        <!-- optional back link (not necessary but user-friendly) -->
-        <div class="text-center mt-5">
-            <a href="../../index.html" class="btn btn-outline-orange" style="color:#f97316; border-color:#f97316; border-radius:3rem; padding:0.6rem 2rem;">
-                <i class="fa-solid fa-arrow-left me-2"></i>Back to Home
-            </a>
-        </div>
+                <!-- Post 2 -->
+                <article class="blog-post-card">
+                <h3 class="blog-post-title">
+                    <a href="#">Discovering the Best SEO Expert in Bangladesh</a>
+                </h3>
+               
+                <p class="blog-post-excerpt">
+                    Search engine optimisation (SEO) is an essential component for digital marketers and entrepreneurs to succeed in the digital world. Your company can reach new heights in Bangladesh, a region with booming tech growth, if you discover the top SEO professional. To boost your online visibility and competitiveness, this blog post…
+                </p>
+                <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+
+                <!-- Post 3 -->
+                <article class="blog-post-card">
+                <h3 class="blog-post-title">
+                    <a href="#">Conduct a social media audit</a>
+                </h3>
+               
+                <p class="blog-post-excerpt">
+                    I guess you already have some sort of social media presence. Take a step back and have a look at everything you do from a distance. If you want to focus your digital marketing on social media, you need to have an overview of your performance. What kind of posts…
+                </p>
+                <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+
+                <!-- Post 4 -->
+                <article class="blog-post-card">
+                <h3 class="blog-post-title">
+                    <a href="#">Social media marketing</a>
+                </h3>
+                <p class="blog-post-excerpt">
+                    Let’s start with social media marketing, quite an obvious yet sometimes poorly executed digital marketing solution. Everyone these days is doing social media marketing, both online and offline businesses. However, there are more of them that are underperforming than those that are thriving. A lot of companies neglect social media and…
+                </p>
+                <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                </article>
+
+            </div>
+            </div>
+        <!-- <div class="services-detail-col">
+            <div>
+                <img src="https://th.bing.com/th/id/R.553e3c9153252c16984cc380d27e95fd?rik=%2bfnYmGXQ2fyOBA&riu=http%3a%2f%2fichef-1.bbci.co.uk%2fnews%2f976%2fmedia%2fimages%2f83351000%2fjpg%2f_83351965_explorer273lincolnshirewoldssouthpicturebynicholassilkstone.jpg&ehk=i497%2bPXcVbzBCanglNEGzIQU3A%2bZDA8RLkL82QdtKIE%3d&risl=&pid=ImgRaw&r=0" width="10" height="10" alt="" srcset="">
+                <h2 class="service-detail-title">IT Services & <span>Consultancy</h2>
+                <p class="service-detail-description">Our IT Services & Consultancy offerings are designed to empower businesses with cutting-edge technology solutions and expert guidance. We provide comprehensive IT consulting to help you navigate the complex digital landscape, optimize your IT infrastructure, and drive innovation. Our services include strategic IT planning, system integration, cybersecurity solutions, cloud services, and ongoing support to ensure your technology investments deliver maximum value and competitive advantage. read modre</p>
+                <ul class="service-detail-features">
+                    <li><i class="fa-solid fa-check"></i> Strategic IT Planning & Roadmapping</li>
+                    <li><i class="fa-solid fa-check"></i> System Integration & Optimization</li>
+                    <li><i class="fa-solid fa-check"></i> Cybersecurity Assessments & Solutions</li>
+                    <li><i class="fa-solid fa-check"></i> Cloud Strategy & Migration Services</li>
+                    <li><i class="fa-solid fa-check"></i> Ongoing IT Support & Managed Services</li>    
+                </ul>
+
+            </div>
+            ...
+        </div> -->
     </div>
+  </div>
 </section>
 
 <!-- ==================== FOOTER ==================== -->

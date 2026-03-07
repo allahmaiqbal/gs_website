@@ -59,14 +59,14 @@
         }
 
         .services-showcase .services-detail-col:hover {
-        border-color: #f97316;
+        /* border-color: #f97316; */
         }
 
         /* service list items */
         .services-showcase .service-list-item {
         display: flex;
         align-items: center;
-        padding: 1.2rem 1.5rem;
+        padding: 1.2rem 0.5rem;
         margin-bottom: 0.5rem;
         border-radius: 1.5rem;
         background: transparent;
@@ -343,28 +343,26 @@
 
         /* ==================== HORIZONTAL BLOG CARD (image left, content right) ==================== */
             .blog-post-card.horizontal {
-            display: flex;
-            gap: 1.5rem;
-            align-items: flex-start;
-            padding: 1.5rem;
+                display: flex;
+                gap: 1.5rem;
+                align-items: flex-start;
+                padding: 1.5rem;
             }
 
             .blog-post-card.horizontal img {
-            width: 160px;           /* fixed width for consistency */
-            height: 120px;
-            object-fit: cover;
-            border-radius: 1rem;
-            border: 1px solid #2a2a2a;
-            transition: border-color 0.2s ease;
-            flex-shrink: 0;          /* prevent image from shrinking */
+                width: 160px;           /* fixed width for consistency */
+                height: 120px;
+                object-fit: cover;
+                border-radius: 1rem;
+                border: 1px solid #2a2a2a;
+                transition: border-color 0.2s ease;
+                flex-shrink: 0;          /* prevent image from shrinking */
             }
 
-            .blog-post-card.horizontal:hover img {
-            border-color: var(--primary-orange, #f97316);
-            }
+           
 
             .blog-post-card.horizontal .blog-content {
-            flex: 1;                 /* take remaining space */
+                flex: 1;                 /* take remaining space */
             }
 
             .blog-post-card.horizontal .blog-post-title {
@@ -461,14 +459,14 @@
     <div class="services-row">
 
         <div class="services-list-col">
-            <div class="service-list-item">Digital Marketing & SEO</div>
-            <div class="service-list-item ">E-Commerce Solutions</div>
-            <div class="service-list-item ">Graphics & Motion Design</div>
-            <div class="service-list-item ">Web Design & Development</div>
-            <div class="service-list-item  active">IT Services & Consultancy</div>
-            <div class="service-list-item ">Mobile Apps Development</div>
-            <div class="service-list-item ">Search Engine Optimization</div>
-            <div class="service-list-item ">Web Application Development</div>
+            <div class="service-list-item" data-service="digital-marketing">Digital Marketing & SEO</div>
+            <div class="service-list-item" data-service="ecommerce">E-Commerce Solutions</div>
+            <div class="service-list-item" data-service="graphics">Graphics & Motion Design</div>
+            <div class="service-list-item" data-service="web-design">Web Design & Development</div>
+            <div class="service-list-item" data-service="it-services">IT Services & Consultancy</div>
+            <div class="service-list-item" data-service="mobile-apps">Mobile Apps Development</div>
+            <div class="service-list-item" data-service="seo">Search Engine Optimization</div>
+            <div class="service-list-item" data-service="web-app">Web Application Development</div>
         </div>
         <div class="services-detail-col">
             <div class="service-blog-posts">
@@ -488,58 +486,50 @@
                 </article>
 
                 <!-- Post 2 -->
-                <article class="blog-post-card">
-                <h3 class="blog-post-title">
-                    <a href="#">Discovering the Best SEO Expert in Bangladesh</a>
-                </h3>
-               
-                <p class="blog-post-excerpt">
-                    Search engine optimisation (SEO) is an essential component for digital marketers and entrepreneurs to succeed in the digital world. Your company can reach new heights in Bangladesh, a region with booming tech growth, if you discover the top SEO professional. To boost your online visibility and competitiveness, this blog post…
-                </p>
-                <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                <article class="blog-post-card horizontal">
+                    <img src="https://th.bing.com/th/id/R.553e3c9153252c16984cc380d27e95fd?rik=%2bfnYmGXQ2fyOBA&riu=http%3a%2f%2fichef-1.bbci.co.uk%2fnews%2f976%2fmedia%2fimages%2f83351000%2fjpg%2f_83351965_explorer273lincolnshirewoldssouthpicturebynicholassilkstone.jpg&ehk=i497%2bPXcVbzBCanglNEGzIQU3A%2bZDA8RLkL82QdtKIE%3d&risl=&pid=ImgRaw&r=0" alt="Digital Marketing">
+                    <div class="blog-content">
+                        <h3 class="blog-post-title">
+                        <a href="#">Discovering the Best SEO Expert in Bangladesh</a>
+                        </h3>
+                        <p class="blog-post-excerpt">
+                             In today’s rapidly changing digital environment, businesses in Bangladesh are increasingly recognizing the importance.
+                        </p>
+                        <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </article>
+             
 
                 <!-- Post 3 -->
-                <article class="blog-post-card">
-                <h3 class="blog-post-title">
-                    <a href="#">Conduct a social media audit</a>
-                </h3>
-               
-                <p class="blog-post-excerpt">
-                    I guess you already have some sort of social media presence. Take a step back and have a look at everything you do from a distance. If you want to focus your digital marketing on social media, you need to have an overview of your performance. What kind of posts…
-                </p>
-                <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                <article class="blog-post-card horizontal">
+                    <img src="https://th.bing.com/th/id/R.553e3c9153252c16984cc380d27e95fd?rik=%2bfnYmGXQ2fyOBA&riu=http%3a%2f%2fichef-1.bbci.co.uk%2fnews%2f976%2fmedia%2fimages%2f83351000%2fjpg%2f_83351965_explorer273lincolnshirewoldssouthpicturebynicholassilkstone.jpg&ehk=i497%2bPXcVbzBCanglNEGzIQU3A%2bZDA8RLkL82QdtKIE%3d&risl=&pid=ImgRaw&r=0" alt="Digital Marketing">
+                    <div class="blog-content">
+                        <h3 class="blog-post-title">
+                        <a href="#">Conduct a social media audit</a>
+                        </h3>
+                        <p class="blog-post-excerpt">
+                            I guess you already have some sort of social media presence. Take a step back and have a look at everything you do from a distance …
+                        </p>
+                        <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
                 </article>
 
                 <!-- Post 4 -->
-                <article class="blog-post-card">
-                <h3 class="blog-post-title">
-                    <a href="#">Social media marketing</a>
-                </h3>
-                <p class="blog-post-excerpt">
-                    Let’s start with social media marketing, quite an obvious yet sometimes poorly executed digital marketing solution. Everyone these days is doing social media marketing, both online and offline businesses. However, there are more of them that are underperforming than those that are thriving. A lot of companies neglect social media and…
-                </p>
-                <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
-                </article>
 
+                <article class="blog-post-card horizontal">
+                    <img src="https://th.bing.com/th/id/R.553e3c9153252c16984cc380d27e95fd?rik=%2bfnYmGXQ2fyOBA&riu=http%3a%2f%2fichef-1.bbci.co.uk%2fnews%2f976%2fmedia%2fimages%2f83351000%2fjpg%2f_83351965_explorer273lincolnshirewoldssouthpicturebynicholassilkstone.jpg&ehk=i497%2bPXcVbzBCanglNEGzIQU3A%2bZDA8RLkL82QdtKIE%3d&risl=&pid=ImgRaw&r=0" alt="Digital Marketing">
+                    <div class="blog-content">
+                        <h3 class="blog-post-title">
+                        <a href="#">Social media marketing</a>
+                        </h3>
+                        <p class="blog-post-excerpt">
+                              Let’s start with social media marketing, quite an obvious yet sometimes poorly executed digital marketing solution. media and…
+                        </p>
+                        <a href="#" class="blog-readmore">Read more <i class="fa-solid fa-arrow-right"></i></a>
+                    </div>
+                </article>  
             </div>
-            </div>
-        <!-- <div class="services-detail-col">
-            <div>
-                <img src="https://th.bing.com/th/id/R.553e3c9153252c16984cc380d27e95fd?rik=%2bfnYmGXQ2fyOBA&riu=http%3a%2f%2fichef-1.bbci.co.uk%2fnews%2f976%2fmedia%2fimages%2f83351000%2fjpg%2f_83351965_explorer273lincolnshirewoldssouthpicturebynicholassilkstone.jpg&ehk=i497%2bPXcVbzBCanglNEGzIQU3A%2bZDA8RLkL82QdtKIE%3d&risl=&pid=ImgRaw&r=0" width="10" height="10" alt="" srcset="">
-                <h2 class="service-detail-title">IT Services & <span>Consultancy</h2>
-                <p class="service-detail-description">Our IT Services & Consultancy offerings are designed to empower businesses with cutting-edge technology solutions and expert guidance. We provide comprehensive IT consulting to help you navigate the complex digital landscape, optimize your IT infrastructure, and drive innovation. Our services include strategic IT planning, system integration, cybersecurity solutions, cloud services, and ongoing support to ensure your technology investments deliver maximum value and competitive advantage. read modre</p>
-                <ul class="service-detail-features">
-                    <li><i class="fa-solid fa-check"></i> Strategic IT Planning & Roadmapping</li>
-                    <li><i class="fa-solid fa-check"></i> System Integration & Optimization</li>
-                    <li><i class="fa-solid fa-check"></i> Cybersecurity Assessments & Solutions</li>
-                    <li><i class="fa-solid fa-check"></i> Cloud Strategy & Migration Services</li>
-                    <li><i class="fa-solid fa-check"></i> Ongoing IT Support & Managed Services</li>    
-                </ul>
-
-            </div>
-            ...
-        </div> -->
+        </div>
     </div>
   </div>
 </section>
@@ -557,6 +547,107 @@
         <p class="mt-2 small text-secondary opacity-50"><i class="fa-regular fa-building me-1"></i> innovation · integrity · impact</p>
     </div>
 </footer>
+
+<script>
+  (function() {
+    // ---------- SERVICE DATA ----------
+    const servicesData = {
+      "digital-marketing": {
+        icon: "fa-chart-line",
+        title: "Digital Marketing & SEO",
+        description: "Unlock your brand’s potential with data‑driven campaigns, keyword optimization, and targeted content. We help businesses in Bangladesh dominate search rankings and engage the right audience. From social media strategy to search engine optimization, our comprehensive approach ensures measurable growth and online visibility."
+      },
+      "ecommerce": {
+        icon: "fa-cart-shopping",
+        title: "E‑Commerce Solutions",
+        description: "From custom online stores to marketplace integration, we build scalable, secure e‑commerce platforms that convert visitors into loyal customers. Full payment gateway integration, inventory management, and responsive design – everything you need to succeed in digital retail."
+      },
+      "graphics": {
+        icon: "fa-paintbrush",
+        title: "Graphics & Motion Design",
+        description: "Captivate your audience with stunning visuals, brand identity, and motion graphics. Our creative team delivers designs that communicate your message with impact and clarity. Logo design, promotional materials, explainer videos, and animated content that sets you apart."
+      },
+      "web-design": {
+        icon: "fa-laptop-code",
+        title: "Web Design & Development",
+        description: "We create modern, responsive websites tailored to your brand. Whether you need a corporate site, portfolio, or complex web portal, our development team ensures seamless performance, intuitive UX, and visually appealing design that drives engagement."
+      },
+      "it-services": {
+        icon: "fa-headset",
+        title: "IT Services & Consultancy",
+        description: "Strategic IT consulting to help you navigate the digital landscape. We offer system integration, cloud solutions, cybersecurity assessments, and ongoing IT support. Our experts align technology with your business goals to maximise efficiency and innovation."
+      },
+      "mobile-apps": {
+        icon: "fa-mobile-screen-button",
+        title: "Mobile Apps Development",
+        description: "Native and cross-platform mobile applications for iOS and Android. From concept to deployment, we build feature‑rich apps that deliver exceptional user experiences. Whether it's a customer‑facing app or an enterprise tool, we bring your ideas to life."
+      },
+      "seo": {
+        icon: "fa-magnifying-glass-chart",
+        title: "Search Engine Optimization",
+        description: "Improve your website’s visibility on search engines with our proven SEO strategies. We conduct in‑depth keyword research, on‑page optimization, and quality link building to drive organic traffic and boost your rankings in Bangladesh and beyond."
+      },
+      "web-app": {
+        icon: "fa-window-maximize",
+        title: "Web Application Development",
+        description: "Custom web applications tailored to your business processes. From CRM systems to data dashboards and online portals, we build robust, scalable solutions that automate workflows and enhance productivity – all with a user‑friendly interface."
+      }
+    };
+
+    // Get elements
+    const serviceItems = document.querySelectorAll('.service-list-item');
+    const detailCol = document.querySelector('.services-detail-col');
+
+    // Function to render right column content
+    function renderService(serviceKey) {
+      const data = servicesData[serviceKey];
+      if (!data) return;
+
+      const html = `
+        <div class="service-showcase-items">
+          <div class="service-showcase-item">
+            <i class="fa-solid ${data.icon} service-icon"></i>
+            <h3>${data.title}</h3>
+            <p>${data.description}</p>
+            <a href="#" class="read-more">Learn more <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+      `;
+      detailCol.innerHTML = html;
+    }
+
+    // Function to set active class
+    function setActiveItem(activeElement) {
+      serviceItems.forEach(item => item.classList.remove('active'));
+      activeElement.classList.add('active');
+    }
+
+    // Add click listeners
+    serviceItems.forEach(item => {
+      item.addEventListener('click', function(e) {
+        e.preventDefault();
+        const serviceKey = this.dataset.service;
+        if (serviceKey) {
+          setActiveItem(this);
+          renderService(serviceKey);
+        }
+      });
+    });
+
+    // Set initial active service (IT Services & Consultancy) on page load
+    const initialActive = document.querySelector('.service-list-item.active');
+    if (initialActive && initialActive.dataset.service) {
+      renderService(initialActive.dataset.service);
+    } else {
+      // fallback to first item if none active
+      const firstItem = serviceItems[0];
+      if (firstItem) {
+        firstItem.classList.add('active');
+        renderService(firstItem.dataset.service);
+      }
+    }
+  })();
+</script>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 <!-- optional: manually set active if needed, but we already set class active on dropdown toggle -->

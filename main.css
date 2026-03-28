@@ -587,14 +587,14 @@
     img.rounded-5 {
         border-radius: 2rem !important;
     }
-    @media (max-width: 576px) {
-        .section-padding {
-        padding: 1rem 0;
-    }
+        @media (max-width: 576px) {
+            .section-padding {
+            padding: 1rem 0;
+        }
     } 
     
     /* common style */
-        .section-title{
+    .section-title{
         font-size: 35px;
         font-weight: 700;
     }

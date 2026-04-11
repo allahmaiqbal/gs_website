@@ -15,6 +15,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="icon" href="image/Gamma-Soft-logo.png" type="image/svg+xml">
     <link rel="stylesheet" href="../../main.css">
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-KH68QF3X');</script>
+    <!-- End Google Tag Manager -->
   <style>
 
         /* ========== NEW PROFESSIONAL PROCESS CYCLE ========== */
@@ -341,7 +348,7 @@
             color: #f97316;
         }
         /* keep existing styles for rest of page */
-        .top-bar {
+        /* .top-bar {
             background-color: #000;
             padding: 10px 0;
             border-bottom: 1px solid #222;
@@ -353,11 +360,11 @@
             font-weight: 600;
             padding: 5px 18px;
             font-size: 0.9rem;
-        }
-        .navbar-modern {
+        } */
+        /* .navbar-modern {
             background-color: #0a0a0a;
             padding: 15px 0;
-        }
+        } */
         .navbar-brand img {
             height: 45px;
         }
@@ -519,7 +526,7 @@
 </head>
 <body>
    <!-- ==================== TOP BAR (Meet With Us | email | phone) ==================== -->
-    <div class="top-bar">
+    <!-- <div class="top-bar">
         <div class="container">
     
             <div class="contact-item">
@@ -527,6 +534,25 @@
             </div>
             <div class="contact-item">
                 <i class="fa-solid fa-phone-volume"></i> <span>+88-01898-890641</span>
+            </div>
+            <div class="contact-item meet-text">
+                <a href="https://calendly.com/gammasoftbd/30min" target="_blank">
+                    <button class="btn btn-meet">
+                        <i class="flaticon-people-2"></i> Meet With Us
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="top-bar">
+        <div class="container">
+    
+            <div class="contact-item">
+                <i class="fa-regular fa-envelope"></i> <span>gammasoftbd@gmail.com</span> <i class="fa-solid fa-phone-volume"></i> <span>+88-01898-890641</span>
+            </div>
+            <div class="contact-item">
+                <!-- <i class="fa-solid fa-phone-volume"></i> <span>+88-01898-890641</span> -->
             </div>
             <div class="contact-item meet-text">
                 <a href="https://calendly.com/gammasoftbd/30min" target="_blank">
@@ -561,7 +587,7 @@
                             <a class="dropdown-item" href="../pages/services.html">CATV Solutions</a>
                             <li><a class="dropdown-item" href="#">Digital Marketing & SEO</a></li>
                             <li><a class="dropdown-item" href="#">E-Commerce Solutions</a></li>
-                            <li><a class="dropdown-item" href="#">Graphics & Motion Design</a></li>
+                            <!-- <li><a class="dropdown-item" href="#">Graphics & Motion Design</a></li> -->
                             <li><a class="dropdown-item" href="#">Web Design & Development</a></li>
                             <li><a class="dropdown-item" href="#">IT Services & Consultancy</a></li>
                             <li><a class="dropdown-item" href="#"> Mobile Apps Development</a></li>
@@ -614,12 +640,11 @@
             </div>
 
             <!-- STATISTICS CARDS (unchanged) -->
-                  <!-- STATISTICS CARDS (4) with counting animation -->
             <div class="row g-4 mt-5 mb-5" id="statistics-section">
                 <div class="col-md-3 col-6">
                     <div class="stat-card">
                         <i class="fa-solid fa-users stat-icon"></i>
-                        <div class="stat-number"><span class="count-num" data-target="20000">0</span>+</div>
+                        <div class="stat-number"><span class="count-num" data-target="100">0</span>+</div>
                         <div class="stat-label">Engineers & Workers</div>
                     </div>
                 </div>
@@ -716,10 +741,9 @@
             <!-- bottom row with social, copyright and tagline (as original) -->
             <div class="d-flex flex-column flex-md-row justify-content-between align-items-center">
                 <div class="social-links order-2 order-md-1 mt-4 mt-md-0">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-                    <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
-                    <a href="#" aria-label="Email"><i class="fa-regular fa-envelope"></i></a>
+                    <a href="https://www.linkedin.com/company/gamma-soft-bd/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.facebook.com/gammasoftbdcom" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://www.instagram.com/gammasoft_bd/" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
                 <p class="mb-0 small order-1 order-md-2 text-center text-md-end">
                     © 2026 Gamma Soft BD. All rights reserved. — <span class="text-secondary">Motahar Lodge (7A), 04 Purana Paltan, Dhaka-1000 .</span>
@@ -776,7 +800,7 @@
                     if (isNaN(target)) return;
 
                     let current = 0;
-                    const duration = 2000; // 2 seconds
+                    const duration = 100; // 2 seconds
                     const stepTime = 20; // update every 20ms
                     const steps = duration / stepTime;
                     const increment = target / steps;
@@ -797,5 +821,9 @@
         })();
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KH68QF3X"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 </body>
 </html>
